@@ -90,7 +90,7 @@ export default function AdminDashboardLayout({
             <UserButton />
           </div>
         </header>
-        <main className="p-2 md:p-4 overflow-x-hidden">{children}</main>
+        <main className="p-4 overflow-x-hidden">{children}</main>
       </div>
     </div>
   );

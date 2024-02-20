@@ -12,6 +12,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "types": ["@uploadcare/blocks/types/jsx"],
     "plugins": [
       {
         "name": "next"
