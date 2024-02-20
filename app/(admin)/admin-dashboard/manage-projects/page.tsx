@@ -8,14 +8,15 @@ import {
   Table,
 } from "@/components/ui/table";
 import { Card } from "@/components/ui/card";
-import { Delete, DeleteIcon, FileEditIcon } from "lucide-react";
+import { Pencil, Plus, Trash } from "lucide-react";
+import Link from "next/link";
 export default function Page() {
   return (
     <div className="flex flex-1 flex-col gap-4 ">
       <div className="grid items-center gap-2 md:grid-cols-[200px_1fr]">
         <h1 className="font-semibold text-lg md:text-2xl">Projects</h1>
         <Button className="ml-auto w-[100px] md:w-[150px]" size="sm">
-          Add new project
+          <Link href="manage-projects/add-project">Add new project</Link>
         </Button>
       </div>
       <Card>
@@ -23,28 +24,33 @@ export default function Page() {
           <TableHeader>
             <TableRow>
               <TableHead>Name</TableHead>
-              <TableHead>Description</TableHead>
-              <TableHead>Live</TableHead>
-              <TableHead className="w-[100px] text-right">Actions</TableHead>
+              <TableHead className="text-center">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             <TableRow>
-              <TableCell className="font-semibold">Alice</TableCell>
-              <TableCell>alice@example.com</TableCell>
-              <TableCell>Admin</TableCell>
-              <TableCell className="text-right">
-                <Button className="w-6 h-6" size="icon" variant="ghost">
-                  <FileEditIcon className="w-4 h-4" />
-                  <span className="sr-only">Edit</span>
+              <TableCell>TrekNest - Tour & Travel CMS</TableCell>
+
+              <TableCell className="flex justify-center gap-2 md:gap-20">
+                <Button
+                  className="flex items-center text-xsm gap-2"
+                  size="sm"
+                  asChild
+                  variant="secondary">
+                  <Link href="manage-projects/edit-project/asdasd">
+                    <Pencil className="w-3 h-3" />
+                    Edit
+                  </Link>
                 </Button>
-                <Button className="w-6 h-6" size="icon" variant="ghost">
-                  <DeleteIcon className="w-4 h-4" />
-                  <span className="sr-only">Edit</span>
+                <Button
+                  className="flex items-center text-xsm gap-2"
+                  size="sm"
+                  variant="destructive">
+                  <Trash className="w-3 h-3" />
+                  Delete
                 </Button>
               </TableCell>
             </TableRow>
-            {/* //TODO: REMOVE */}
           </TableBody>
         </Table>
       </Card>
