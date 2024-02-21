@@ -10,6 +10,7 @@ import {
   LayoutDashboard,
   User,
 } from "lucide-react";
+import { ThemeToggler } from "@/components/ThemeToggler";
 type sideLink = { text: string; href: string; icon: React.ReactNode };
 
 const sidelinks: sideLink[] = [
@@ -86,11 +87,12 @@ export default function AdminDashboardLayout({
               <span className="sr-only">{link.text}</span>
             </Link>
           ))}
-          <div className="ml-auto">
+          <div className="flex gap-3 items-center ml-auto">
+            <ThemeToggler />
             <UserButton />
           </div>
         </header>
-        <main className="p-4 overflow-x-hidden">{children}</main>
+        <main className="p-4  ">{children}</main>
       </div>
     </div>
   );
