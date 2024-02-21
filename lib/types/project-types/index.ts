@@ -4,8 +4,8 @@ type TechStack = { id: string; text: string };
 type Keyword = { id: string; text: string };
 
 export type Project = {
-    logo:  File; // Project Logo: string URL or File
-    screenshot:  File; // Project Screenshot: string URL or File
+    logo: string; // Project Logo: string URL or File
+    screenshot: string; // Project Screenshot: string URL or File
     title: string; // Title
     oneLiner: string; // One-Liner
     projectType: "frontend" | "backend" | "full-stack"; // Project Type
@@ -41,13 +41,17 @@ export const createAndEditProjectSchema = z.object({
             id: z.string(),
             text: z.string(),
         })
-    ),
+    ).min(1, {
+        message: 'at least one tech stack',
+    }).max(7, { message: 'maximum limit 07.' }),
     keywords: z.array(
         z.object({
             id: z.string(),
             text: z.string(),
         })
-    ),
+    ).min(1, {
+        message: 'at least one keywords',
+    }).max(3, { message: 'maximum limit 3.' }),
     description: z.string().min(2, {
         message: 'Description must be at least 30 characters.',
     }).max(300, {
