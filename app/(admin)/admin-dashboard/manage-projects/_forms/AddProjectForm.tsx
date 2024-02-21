@@ -36,13 +36,11 @@ import { useRouter } from "next/navigation";
 import { createProjectAction } from "@/actions/project.actions";
 import { useState } from "react";
 
-export type UploadResult = {
-  info: {
-    public_id: string;
-  };
-  event: "success";
-};
 function AddProjectForm() {
+  const [techStackTags, setTechStackTags] = useState<Tag[]>([]);
+  const [keywordTags, setKeywordTags] = useState<Tag[]>([]);
+  const [logoId, setLogoId] = useState("");
+  const [screenshotId, setScreenshotId] = useState("");
   const form = useForm<CreateAndEditProjectType>({
     resolver: zodResolver(createAndEditProjectSchema),
     defaultValues: {
@@ -57,11 +55,7 @@ function AddProjectForm() {
       description: "",
     },
   });
-  const [techStackTags, setTechStackTags] = useState<Tag[]>([]);
-  const [keywordTags, setKeywordTags] = useState<Tag[]>([]);
-  const [logoId, setLogoId] = useState("");
-  const [screemshotId, setScreenshotId] = useState("");
-  console.log(logoId);
+
   const { setValue } = form;
 
   const queryClient = useQueryClient();
@@ -84,41 +78,45 @@ function AddProjectForm() {
 
   function onSubmit(values: CreateAndEditProjectType) {
     console.log(values);
-    console.log("consoled on submit ");
     mutate(values);
   }
-
+  console.log(screenshotId);
+  console.log(logoId);
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 items-start">
-          {/* project logo */}
-          <div className="">
+      <form className="pb-50" onSubmit={form.handleSubmit(onSubmit)}>
+        <div className="grid gap-4 md:grid-cols-2  items-start">
+          <div className="flex flex-col gap-3">
             <CustomFormFieldFile
               name="logo"
               value={logoId}
               control={form.control}
             />
-            <CldUploadButton
-              onUpload={(result: any) => {
-                setLogoId(result?.info?.secure_url);
-              }}
-              uploadPreset="ghjltfqr"
-            />
+            <Button asChild variant="outline">
+              <CldUploadButton
+                onUpload={(result: any) => {
+                  setLogoId(result?.info?.secure_url);
+                }}
+                uploadPreset={process.env.NEXT_PUBLIC_UPLOAD_PRESET}
+              />
+            </Button>
           </div>
-
-          <CldUploadButton
-            onUpload={(result: any) => {
-              setScreenshotId(result?.info?.secure_url);
-            }}
-            uploadPreset="ghjltfqr"
-          />
-          {/* project logo */}
-          <CustomFormFieldFile
-            name="screenshot"
-            value={screemshotId}
-            control={form.control}
-          />
+          <div className="flex flex-col gap-3">
+            {/* project screen */}
+            <CustomFormFieldFile
+              name="screenshot"
+              value={screenshotId}
+              control={form.control}
+            />
+            <Button asChild variant="outline">
+              <CldUploadButton
+                onUpload={(result: any) => {
+                  setScreenshotId(result?.info?.secure_url);
+                }}
+                uploadPreset={process.env.NEXT_PUBLIC_UPLOAD_PRESET}
+              />
+            </Button>
+          </div>
           {/* project title */}
           <CustomFormField name="title" control={form.control} />
           {/* project oneliner */}
@@ -178,9 +176,14 @@ function AddProjectForm() {
             )}
           />
           {/* project type */}
-          <CustomFormTextArea name="description" control={form.control} />
-          <Button type="submit" className=" capitalize" disabled={isPending}>
-            {isPending ? "loading..." : "Create Project"}
+          <div className="md:col-span-2">
+            <CustomFormTextArea name="description" control={form.control} />
+          </div>
+          <Button
+            type="submit"
+            className="disabled md:col-span-2"
+            disabled={isPending}>
+            {isPending ? "loading..." : "Add Project"}
           </Button>
         </div>
       </form>
