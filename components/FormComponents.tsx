@@ -50,14 +50,13 @@ export function CustomFormFieldFile({
 }) {
   return (
     <FormField
-    
       control={control}
       name={name}
       render={({ field }) => (
-        <FormItem >
+        <FormItem>
           <FormLabel className="capitalize">{name}</FormLabel>
           <FormControl>
-            <Input {...field} value={value} />
+            <Input {...field} disabled value={value} />
           </FormControl>
           <FormMessage />
         </FormItem>
@@ -106,7 +105,7 @@ export function CustomFormSelect({
           <FormItem>
             <FormLabel className="capitalize">{labelText || name}</FormLabel>
             <Select onValueChange={field.onChange} defaultValue={field.value}>
-              <FormControl>
+              <FormControl className="capitalize">
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
@@ -114,7 +113,7 @@ export function CustomFormSelect({
               <SelectContent>
                 {items.map((item) => {
                   return (
-                    <SelectItem key={item} value={item}>
+                    <SelectItem className="capitalize" key={item} value={item}>
                       {item}
                     </SelectItem>
                   );
