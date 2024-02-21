@@ -10,10 +10,10 @@ const AddProject = () => {
 
   return (
     <>
-      <h1 className="font-bold mb-5 border-b text-center pb-4 uppercase text-xl ">
-        Add new project
-      </h1>
       <HydrationBoundary state={dehydrate(queryClient)}>
+        <h1 className="font-bold mb-5 border-b text-center pb-4 uppercase text-xl ">
+          Add new project
+        </h1>
         <AddProjectForm />
       </HydrationBoundary>
     </>

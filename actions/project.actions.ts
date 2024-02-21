@@ -2,13 +2,13 @@
 
 import {
     CreateAndEditProjectType,
-    ProjectType,
     Project,
     createAndEditProjectSchema,
 } from "@/lib/types/project-types";
+
 import { auth } from '@clerk/nextjs';
 import { redirect } from 'next/navigation';
-import connectDB from '@/db';
+import { connectToDatabase } from '@/db';
 
 import ProjectModel from "@/db/models/project.model";
 
@@ -18,17 +18,23 @@ function authenticateAndRedirect(): string {
     return userId;
 }
 
-export async function createProjectAction(
-    values: CreateAndEditProjectType
-): Promise<Project | null> {
-    authenticateAndRedirect();
+export async function createProjectAction(values: CreateAndEditProjectType): Promise<boolean> {
+    const userId = authenticateAndRedirect();
+    await connectToDatabase()
     try {
-        await connectDB()
         createAndEditProjectSchema.parse(values);
-        console.log(values)
-        // const project: Project = await ProjectModel.create({ ...values });
-
-        return null;
+        await ProjectModel.create({ ...values });
+        return true;
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+}
+export async function getAllProjectsAction(): Promise<Project[] | null> {
+    await connectToDatabase()
+    try {
+        const projects: Project[] = await ProjectModel.find({});
+        return projects;
     } catch (error) {
         console.log(error);
         return null;

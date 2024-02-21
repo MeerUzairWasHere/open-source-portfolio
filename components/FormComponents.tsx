@@ -52,6 +52,7 @@ export function CustomFormFieldFile({
     <FormField
       control={control}
       name={name}
+      defaultValue={value}
       render={({ field }) => (
         <FormItem>
           <FormLabel className="capitalize">{name}</FormLabel>

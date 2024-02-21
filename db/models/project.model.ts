@@ -10,8 +10,6 @@ const ProjectSchema = new Schema({
     techStack: [{ id: String, text: String }],
     keywords: [{ id: String, text: String }],
     description: { type: String, required: true },
-    screenshotPublicId: String,
-    logoPublicId: String,
 });
 
 const Project = models.Project || model("Project", ProjectSchema);

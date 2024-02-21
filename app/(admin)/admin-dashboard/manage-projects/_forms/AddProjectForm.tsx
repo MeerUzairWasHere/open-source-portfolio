@@ -18,6 +18,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
   CreateAndEditProjectType,
+  Project,
   ProjectType,
   createAndEditProjectSchema,
 } from "@/lib/types/project-types";
@@ -30,7 +31,6 @@ import {
 } from "@/components/FormComponents";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-// import { createJobAction } from "@/utils/actions";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 import { createProjectAction } from "@/actions/project.actions";
@@ -69,19 +69,22 @@ function AddProjectForm() {
         toast({ description: "there was an error" });
         return;
       }
+      router.push("/admin-dashboard/manage-projects");
       toast({ description: "Project added sucessfully!" });
       queryClient.invalidateQueries({ queryKey: ["projects"] });
-
-      router.push("/admin-dashboard/manage-projects");
+      return null;
     },
   });
 
   function onSubmit(values: CreateAndEditProjectType) {
-    console.log(values);
-    mutate(values);
+    const data: CreateAndEditProjectType = {
+      ...values,
+      logo: logoId,
+      screenshot: screenshotId,
+    };
+    mutate(data);
   }
-  console.log(screenshotId);
-  console.log(logoId);
+
   return (
     <Form {...form}>
       <form className="pb-50" onSubmit={form.handleSubmit(onSubmit)}>
@@ -183,7 +186,7 @@ function AddProjectForm() {
             type="submit"
             className="disabled md:col-span-2"
             disabled={isPending}>
-            {isPending ? "loading..." : "Add Project"}
+            {isPending ? "Please wait..." : "Add Project"}
           </Button>
         </div>
       </form>

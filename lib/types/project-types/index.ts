@@ -1,9 +1,19 @@
+import mongoose from 'mongoose';
 import * as z from 'zod';
 
-type TechStack = { id: string; text: string };
-type Keyword = { id: string; text: string };
+type TechStack = {
+    id: string;
+    text: string;
+    _id: mongoose.Types.ObjectId;
+};
+type Keyword = {
+    id: string; text: string;
+    _id: mongoose.Types.ObjectId;
+
+};
 
 export type Project = {
+    _id: mongoose.Types.ObjectId;
     logo: string; // Project Logo: string URL or File
     screenshot: string; // Project Screenshot: string URL or File
     title: string; // Title
@@ -13,6 +23,7 @@ export type Project = {
     techStack: TechStack[]; // Tech Stack: array of objects having 2 properties id and text
     keywords: Keyword[]; // Keywords array of objects having 2 properties id and text
     description: string; // Description
+    __v: number
 };
 
 
