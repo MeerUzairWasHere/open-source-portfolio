@@ -8,11 +8,11 @@ import { ProjectsTable } from "./_components/projects";
 export default async function Page() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery({
-    queryKey: ["projects"],
-    queryFn: () => getAllProjectsAction(),
-  });
-  
+  // await queryClient.prefetchQuery({
+  //   queryKey: ["projects"],
+  //   queryFn: () => getAllProjectsAction(),
+  // });
+
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <ProjectsTable />

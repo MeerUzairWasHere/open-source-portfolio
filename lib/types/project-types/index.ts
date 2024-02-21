@@ -2,28 +2,28 @@ import mongoose from 'mongoose';
 import * as z from 'zod';
 
 type TechStack = {
+    _id: mongoose.Types.ObjectId;
     id: string;
     text: string;
-    _id: mongoose.Types.ObjectId;
 };
 type Keyword = {
-    id: string; text: string;
     _id: mongoose.Types.ObjectId;
+    id: string;
+    text: string;
 
 };
 
 export type Project = {
-    _id: mongoose.Types.ObjectId;
+    id: string
     logo: string; // Project Logo: string URL or File
     screenshot: string; // Project Screenshot: string URL or File
     title: string; // Title
     oneLiner: string; // One-Liner
     projectType: "frontend" | "backend" | "full-stack"; // Project Type
     liveURL: string; // Live URL
-    techStack: TechStack[]; // Tech Stack: array of objects having 2 properties id and text
-    keywords: Keyword[]; // Keywords array of objects having 2 properties id and text
     description: string; // Description
-    __v: number
+    keyword: Keyword[];
+    techStack: TechStack[]
 };
 
 

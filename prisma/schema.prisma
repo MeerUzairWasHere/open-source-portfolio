@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  oneLiner    String
+  logo        String
+  screenshot  String
+  projectType String
+  liveURL     String
+  description String
+  techStack   TechStack[]
+  keywords    Keyword[]
+}
+
+model TechStack {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  techId    String
+  text      String
+  Project   Project? @relation(fields: [projectId], references: [id])
+  projectId String?  @db.ObjectId
+}
+
+model Keyword {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  keyId     String
+  text      String
+  Project   Project? @relation(fields: [projectId], references: [id])
+  projectId String?  @db.ObjectId
+}

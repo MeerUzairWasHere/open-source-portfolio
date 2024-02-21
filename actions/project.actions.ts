@@ -1,5 +1,6 @@
 'use server';
 
+import prisma from "@/db";
 import {
     CreateAndEditProjectType,
     Project,
@@ -8,9 +9,9 @@ import {
 
 import { auth } from '@clerk/nextjs';
 import { redirect } from 'next/navigation';
-import { connectToDatabase } from '@/db';
+// import { connectToDatabase } from '@/db';
 
-import ProjectModel from "@/db/models/project.model";
+// import db from "@/db";
 
 function authenticateAndRedirect(): string {
     const { userId } = auth();
@@ -18,25 +19,30 @@ function authenticateAndRedirect(): string {
     return userId;
 }
 
-export async function createProjectAction(values: CreateAndEditProjectType): Promise<boolean> {
-    const userId = authenticateAndRedirect();
-    await connectToDatabase()
+
+export async function createProjectAction(values: any) {
     try {
         createAndEditProjectSchema.parse(values);
-        await ProjectModel.create({ ...values });
-        return true;
-    } catch (error) {
-        console.log(error);
-        return false;
-    }
-}
-export async function getAllProjectsAction(): Promise<Project[] | null> {
-    await connectToDatabase()
-    try {
-        const projects: Project[] = await ProjectModel.find({});
-        return projects;
+        const project = await prisma.project.create({
+            data: {
+                ...values
+            }
+        });
+        return project;
     } catch (error) {
         console.log(error);
         return null;
+    }
+}
+
+
+export async function getAllProjectsAction() {
+    try {
+        const projects = await prisma.project.findMany({})
+        console.log(projects)
+        return { projects };
+    } catch (error) {
+        console.log(error);
+        return { AllProjects: [] };
     }
 }

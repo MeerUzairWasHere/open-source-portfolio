@@ -1,8 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
-
 import { Button } from "@/components/ui/button";
 import {
   TableHead,
@@ -13,23 +11,23 @@ import {
   Table,
 } from "@/components/ui/table";
 import { Card } from "@/components/ui/card";
-import { Pencil, Plus, Trash } from "lucide-react";
+import {  Pencil, Trash } from "lucide-react";
 import Link from "next/link";
 import { getAllProjectsAction } from "@/actions/project.actions";
-import { Project } from "@/lib/types/project-types";
 
 export const ProjectsTable = () => {
   const { data, isPending } = useQuery({
     queryKey: ["projects"],
     queryFn: () => getAllProjectsAction(),
   });
-  console.log(data);
-  const projects: Project[] = data || [];
+
+  const projects = data?.AllProjects || [];
+
+  console.log(projects);
 
   if (isPending) return <h2 className="text-xl">Please wait...</h2>;
-  if (projects.length < 1)
-    return <h2 className="text-xl">No Projects Found...</h2>;
-  console.log(projects);
+  // if (projects.length < 1)
+  //   return <h2 className="text-xl">No Projects Found...</h2>;
   return (
     <div className="flex flex-1 flex-col gap-4 ">
       <div className="grid items-center gap-2 md:grid-cols-[200px_1fr]">
