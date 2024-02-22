@@ -1,17 +1,6 @@
-import mongoose from 'mongoose';
+import { Prisma } from '@prisma/client';
 import * as z from 'zod';
 
-type TechStack = {
-    _id: mongoose.Types.ObjectId;
-    id: string;
-    text: string;
-};
-type Keyword = {
-    _id: mongoose.Types.ObjectId;
-    id: string;
-    text: string;
-
-};
 
 export type Project = {
     id: string
@@ -19,12 +8,16 @@ export type Project = {
     screenshot: string; // Project Screenshot: string URL or File
     title: string; // Title
     oneLiner: string; // One-Liner
-    projectType: "frontend" | "backend" | "full-stack"; // Project Type
+    projectType: string // Project Type
     liveURL: string; // Live URL
     description: string; // Description
-    keyword: Keyword[];
-    techStack: TechStack[]
+    keywords: Prisma.JsonValue[]
+    techStack: Prisma.JsonValue[]
 };
+export type ObjectTag = {
+    id: string;
+    text: string;
+}
 
 
 export enum ProjectType {

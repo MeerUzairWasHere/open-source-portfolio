@@ -18,6 +18,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
   CreateAndEditProjectType,
+  ObjectTag,
   Project,
   ProjectType,
   createAndEditProjectSchema,
@@ -30,47 +31,61 @@ import {
   CustomFormTextArea,
 } from "@/components/FormComponents";
 
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
-import { createProjectAction } from "@/actions/project.actions";
+import {
+  createProjectAction,
+  getSingleProjectAction,
+  updateProjectAction,
+} from "@/actions/project.actions";
 import { useState } from "react";
 
-function AddProjectForm() {
-  const [techStackTags, setTechStackTags] = useState<Tag[]>([]);
-  const [keywordTags, setKeywordTags] = useState<Tag[]>([]);
-  const [logoId, setLogoId] = useState("");
-  const [screenshotId, setScreenshotId] = useState("");
+function EditProjectForm({ projectId }: { projectId: string }) {
+  const { data } = useQuery({
+    queryKey: ["project", projectId],
+    queryFn: () => getSingleProjectAction(projectId),
+  });
+
   const form = useForm<CreateAndEditProjectType>({
     resolver: zodResolver(createAndEditProjectSchema),
     defaultValues: {
-      title: "",
-      oneLiner: "",
-      logo: "",
-      screenshot: "",
-      projectType: ProjectType.FullStack,
-      liveURL: "",
-      techStack: [],
-      keywords: [],
-      description: "",
+      title: data?.title,
+      oneLiner: data?.oneLiner,
+      logo: data?.logo,
+      screenshot: data?.screenshot,
+      projectType: (data?.projectType as ProjectType) || ProjectType.FullStack,
+      liveURL: data?.liveURL,
+      techStack: data?.techStack as ObjectTag[],
+      keywords: data?.keywords as ObjectTag[],
+      description: data?.description,
     },
   });
 
-  const { setValue } = form;
+  const [logoId, setLogoId] = useState(data?.logo || "");
+  const [screenshotId, setScreenshotId] = useState(data?.screenshot || "");
 
+  const [techStackTags, setTechStackTags] = useState<Tag[]>(
+    data?.techStack as ObjectTag[]
+  );
+  const [keywordTags, setKeywordTags] = useState<Tag[]>(
+    data?.keywords as ObjectTag[]
+  );
+  const { setValue } = form;
   const queryClient = useQueryClient();
   const { toast } = useToast();
   const router = useRouter();
+
   const { mutate, isPending } = useMutation({
     mutationFn: (values: CreateAndEditProjectType) =>
-      createProjectAction(values),
+      updateProjectAction(projectId, values),
     onSuccess: (data) => {
       if (!data) {
-        toast({ description: "there was an error" });
+        toast({ description: "There was an error" });
         return;
       }
       router.push("/admin-dashboard/manage-projects");
-      toast({ description: "Project added successfully!" });
+      toast({ description: "Project updated successfully!" });
       queryClient.invalidateQueries({ queryKey: ["projects"] });
       return null;
     },
@@ -84,7 +99,6 @@ function AddProjectForm() {
     };
     mutate(data);
   }
-
   return (
     <Form {...form}>
       <form className="pb-50" onSubmit={form.handleSubmit(onSubmit)}>
@@ -186,11 +200,11 @@ function AddProjectForm() {
             type="submit"
             className="disabled md:col-span-2"
             disabled={isPending}>
-            {isPending ? "Please wait..." : "Add Project"}
+            {isPending ? "Please wait..." : "Edit Project"}
           </Button>
         </div>
       </form>
     </Form>
   );
 }
-export default AddProjectForm;
+export default EditProjectForm;

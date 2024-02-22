@@ -27,7 +27,6 @@ export type Tag = {
   id: string;
   text: string;
 };
- 
 
 export interface TagInputProps
   extends OmittedInputProps,
