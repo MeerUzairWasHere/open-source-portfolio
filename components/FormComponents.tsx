@@ -15,6 +15,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
+import { Tag, TagInput } from "./ui/tag-input";
+import { SetStateAction } from "react";
 
 type CustomFormFieldProps = {
   name: string;
@@ -46,12 +48,14 @@ export function CustomFormField({
 
 export function CustomFormFieldFile({
   name,
+  title,
   control,
   value,
 }: {
   name: string;
   control: Control<any>;
   value: string;
+  title?: string;
 }) {
   return (
     <FormField
@@ -60,7 +64,7 @@ export function CustomFormFieldFile({
       defaultValue={value}
       render={({ field }) => (
         <FormItem>
-          <FormLabel className="capitalize">{name}</FormLabel>
+          <FormLabel className="capitalize">{title || name}</FormLabel>
           <FormControl>
             <Input {...field} disabled value={value} />
           </FormControl>
@@ -71,14 +75,18 @@ export function CustomFormFieldFile({
   );
 }
 
-export function CustomFormTextArea({ name, control }: CustomFormFieldProps) {
+export function CustomFormTextArea({
+  name,
+  control,
+  title,
+}: CustomFormFieldProps) {
   return (
     <FormField
       control={control}
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel className="capitalize">{name}</FormLabel>
+          <FormLabel className="capitalize">{title || name}</FormLabel>
           <FormControl>
             <Textarea className="resize-none" rows={7} {...field} />
           </FormControl>
@@ -130,6 +138,45 @@ export function CustomFormSelect({
           </FormItem>
         );
       }}
+    />
+  );
+}
+
+export function CustomTagField({
+  name,
+  title,
+  control,
+  tagsList,
+  setValue,
+  setTagsList,
+}: {
+  name: string;
+  control: Control<any>;
+  title?: string;
+  tagsList: Tag[];
+  setTagsList: any;
+  setValue: any;
+}) {
+  return (
+    <FormField
+      control={control}
+      name={name}
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel className="capitalize">{title || name}</FormLabel>
+          <FormControl>
+            <TagInput
+              {...field}
+              tags={tagsList}
+              setTags={(newTags) => {
+                setTagsList(newTags);
+                setValue(name, newTags as [Tag, ...Tag[]]);
+              }}
+            />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      )}
     />
   );
 }

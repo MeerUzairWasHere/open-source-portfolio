@@ -20,6 +20,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   CustomFormField,
   CustomFormFieldFile,
+  CustomTagField,
 } from "@/components/FormComponents";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -80,14 +81,13 @@ function AddCertificationForm() {
       screenshot: screenshotId,
     };
 
-    console.log(data);
     mutate(data);
   }
   return (
     <Form {...form}>
       <form className="pb-50" onSubmit={form.handleSubmit(onSubmit)}>
         <div className="grid gap-4 md:grid-cols-2  items-start">
-          <CustomFormField name="title" control={form.control} />
+          <CustomFormField name="title" title="certification title" control={form.control} />
           <CustomFormField
             name="organizationName"
             title="Organization Name"
@@ -96,23 +96,24 @@ function AddCertificationForm() {
 
           <CustomFormField
             name="credentialID"
-            title="credential ID"
+            title="Certification Credential ID"
             control={form.control}
           />
           <CustomFormField
-            title="certificate Url"
+            title="Certification Url"
             name="certificateUrl"
             control={form.control}
           />
           <DatePicker
             name="completionDate"
-            dateTitle="Completion Date"
+            dateTitle="Certification Completion Date"
             control={form.control}
           />
 
           <div className="flex flex-col gap-3">
             <CustomFormFieldFile
               name="screenshot"
+              title="project screenshot"
               value={screenshotId}
               control={form.control}
             />
@@ -125,26 +126,14 @@ function AddCertificationForm() {
               />
             </Button>
           </div>
-          <FormField
+
+          <CustomTagField
             control={form.control}
             name="learned"
-            render={({ field }) => (
-              <FormItem className="flex flex-col items-start">
-                <FormLabel className="text-left">What I Learned</FormLabel>
-                <FormControl>
-                  <TagInput
-                    {...field}
-                    tags={whatILearned}
-                    className="sm:min-w-[350px]"
-                    setTags={(newTags) => {
-                      setWhatILearned(newTags);
-                      setValue("learned", newTags as [Tag, ...Tag[]]);
-                    }}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+            title="What I Learned"
+            tagsList={whatILearned}
+            setTagsList={setWhatILearned}
+            setValue={setValue}
           />
 
           <Button

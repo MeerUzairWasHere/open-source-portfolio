@@ -28,6 +28,7 @@ import {
   CustomFormFieldFile,
   CustomFormSelect,
   CustomFormTextArea,
+  CustomTagField,
 } from "@/components/FormComponents";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -105,6 +106,7 @@ function EditProjectForm({ projectId }: { projectId: string }) {
           <div className="flex flex-col gap-3">
             <CustomFormFieldFile
               name="logo"
+              title="Project logo"
               value={logoId}
               control={form.control}
             />
@@ -121,6 +123,7 @@ function EditProjectForm({ projectId }: { projectId: string }) {
             {/* project screen */}
             <CustomFormFieldFile
               name="screenshot"
+              title="Project Screenshot"
               value={screenshotId}
               control={form.control}
             />
@@ -134,66 +137,57 @@ function EditProjectForm({ projectId }: { projectId: string }) {
             </Button>
           </div>
           {/* project title */}
-          <CustomFormField name="title" control={form.control} />
+          <CustomFormField
+            name="title"
+            title="Project Title"
+            control={form.control}
+          />
           {/* project oneliner */}
-          <CustomFormField name="oneLiner" control={form.control} />
+          <CustomFormField
+            name="oneLiner"
+            title="Project One - Liner"
+            control={form.control}
+          />
           {/* project liveUrl */}
-          <CustomFormField name="liveURL" control={form.control} />
+          <CustomFormField
+            name="liveURL"
+            title="Project Live Url"
+            control={form.control}
+          />
           {/* project type */}
           <CustomFormSelect
             name="projectType"
             control={form.control}
-            labelText="job mode"
+            labelText="Project Type"
             items={Object.values(ProjectType)}
           />
           {/* tech stack */}
-          <FormField
+
+          <CustomTagField
             control={form.control}
             name="techStack"
-            render={({ field }) => (
-              <FormItem className="flex flex-col items-start">
-                <FormLabel className="text-left">Techstack</FormLabel>
-                <FormControl>
-                  <TagInput
-                    {...field}
-                    tags={techStackTags}
-                    className="sm:min-w-[450px]"
-                    setTags={(newTags) => {
-                      setTechStackTags(newTags);
-                      setValue("techStack", newTags as [Tag, ...Tag[]]);
-                    }}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+            title="Used techstack"
+            tagsList={techStackTags}
+            setTagsList={setTechStackTags}
+            setValue={setValue}
           />
           {/* keywords stack */}
-          <FormField
+
+          <CustomTagField
             control={form.control}
             name="keywords"
-            render={({ field }) => (
-              <FormItem className="flex flex-col items-start">
-                <FormLabel className="text-left">Keywords</FormLabel>
-                <FormControl>
-                  <TagInput
-                    {...field}
-                    tags={keywordTags}
-                    className="sm:min-w-[450px]"
-                    setTags={(newTags) => {
-                      setKeywordTags(newTags);
-                      setValue("keywords", newTags as [Tag, ...Tag[]]);
-                    }}
-                  />
-                </FormControl>
-
-                <FormMessage />
-              </FormItem>
-            )}
+            title="Project keywords"
+            tagsList={keywordTags}
+            setTagsList={setKeywordTags}
+            setValue={setValue}
           />
           {/* project type */}
           <div className="md:col-span-2">
-            <CustomFormTextArea name="description" control={form.control} />
+            <CustomFormTextArea
+              name="description"
+              title="Project Description"
+              control={form.control}
+            />
           </div>
           <Button
             type="submit"
