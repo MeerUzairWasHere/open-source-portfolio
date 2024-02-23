@@ -21,7 +21,7 @@ export default async function Page() {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <PageHeader title="project" href="manage-projects/add-project" />
+      <PageHeader title="projects" href="manage-projects/add-project" />
       <ProjectsTable />
     </HydrationBoundary>
   );

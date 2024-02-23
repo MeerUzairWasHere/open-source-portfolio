@@ -3,9 +3,9 @@ import { Button } from "./ui/button";
 
 export function PageHeader({ title, href }: { title: string; href: string }) {
   return (
-    <div className="grid items-center gap-2 md:grid-cols-[200px_1fr] mb-4">
+    <div className="flex justify-between items-center gap-2 mb-5  ">
       <h1 className="font-semibold capitalize text-lg md:text-2xl">{title}</h1>
-      <Button className="ml-auto w-[100px] md:w-[150px]" size="sm">
+      <Button asChild size="default">
         <Link href={href}>Add new {title}</Link>
       </Button>
     </div>

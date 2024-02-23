@@ -61,7 +61,9 @@ export default function AdminDashboardLayout({
       <div className="hidden border-r  lg:block  ">
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-[60px] items-center border-b px-6">
-            <Link className="flex items-center gap-2 font-semibold" href=".">
+            <Link
+              className="flex items-center gap-2 font-semibold"
+              href="/admin-dashboard">
               <LayoutDashboard className="h-5 w-5 dark:fill-gray" />
               <span>Admin Dashboard</span>
             </Link>

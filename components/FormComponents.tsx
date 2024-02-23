@@ -19,16 +19,21 @@ import { Textarea } from "./ui/textarea";
 type CustomFormFieldProps = {
   name: string;
   control: Control<any>;
+  title?: string;
 };
 
-export function CustomFormField({ name, control }: CustomFormFieldProps) {
+export function CustomFormField({
+  name,
+  control,
+  title,
+}: CustomFormFieldProps) {
   return (
     <FormField
       control={control}
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel className="capitalize">{name}</FormLabel>
+          <FormLabel className="capitalize">{title || name}</FormLabel>
           <FormControl>
             <Input {...field} />
           </FormControl>

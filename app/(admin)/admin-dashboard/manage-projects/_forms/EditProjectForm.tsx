@@ -19,7 +19,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   CreateAndEditProjectType,
   ObjectTag,
-  Project,
   ProjectType,
   createAndEditProjectSchema,
 } from "@/lib/types/project-types";
@@ -35,7 +34,6 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 import {
-  createProjectAction,
   getSingleProjectAction,
   updateProjectAction,
 } from "@/actions/project.actions";
@@ -87,6 +85,7 @@ function EditProjectForm({ projectId }: { projectId: string }) {
       router.push("/admin-dashboard/manage-projects");
       toast({ description: "Project updated successfully!" });
       queryClient.invalidateQueries({ queryKey: ["projects"] });
+      queryClient.invalidateQueries({ queryKey: ["project", projectId] });
       return null;
     },
   });

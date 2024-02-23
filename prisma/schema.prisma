@@ -25,3 +25,14 @@ datasource db {
     keywords    Json[]
   }
  
+  model Certification {
+  id                String      @id @default(auto()) @map("_id") @db.ObjectId
+  title             String
+  organizationName  String
+  completionDate    DateTime
+  credentialID      String
+  certificateUrl    String
+  screenshot        String
+  learned           Json[]
+  }
+ 
