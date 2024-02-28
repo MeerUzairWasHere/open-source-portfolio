@@ -15,16 +15,9 @@ import {
 
 import { Button } from "@/components/ui/button";
 
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form } from "@/components/ui/form";
 
-import { Tag, TagInput } from "@/components/ui/tag-input";
+import { Tag } from "@/components/ui/tag-input";
 
 import { useToast } from "@/components/ui/use-toast";
 
@@ -58,7 +51,6 @@ function EditCertificationForm({ certificateId }: { certificateId: string }) {
 
     mutate(data);
   }
-  const [date, setDate] = useState<Date>();
   const [whatILearned, setWhatILearned] = useState<Tag[]>(
     data?.learned as Tag[]
   );
@@ -147,7 +139,7 @@ function EditCertificationForm({ certificateId }: { certificateId: string }) {
               />
             </Button>
           </div>
-          
+
           <CustomTagField
             control={form.control}
             name="learned"

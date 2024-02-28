@@ -36,3 +36,12 @@ datasource db {
   learned           Json[]
   }
  
+  model Experience {
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
+  positionName     String
+  companyName     String
+  companyLocation    String
+  startDate   DateTime
+  endDate     DateTime
+  learned     Json[]
+  }
