@@ -45,3 +45,14 @@ datasource db {
   endDate     DateTime
   learned     Json[]
   }
+
+model Techstack{
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  category      String
+  url           String
+  techstackType String
+  imageUrl      String
+}
+
+ 

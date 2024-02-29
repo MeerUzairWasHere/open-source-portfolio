@@ -2,14 +2,7 @@
 import { CldUploadButton } from "next-cloudinary";
 
 //tags
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form } from "@/components/ui/form";
 import { Tag, TagInput } from "@/components/ui/tag-input";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
@@ -18,7 +11,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
   CreateAndEditProjectType,
-  Project,
   ProjectType,
   createAndEditProjectSchema,
 } from "@/lib/types/project-types";
@@ -74,6 +66,7 @@ function AddProjectForm() {
       router.push("/admin-dashboard/manage-projects");
       toast({ description: "Project added successfully!" });
       queryClient.invalidateQueries({ queryKey: ["projects"] });
+      queryClient.invalidateQueries({ queryKey: ["stats"] });
       return null;
     },
   });

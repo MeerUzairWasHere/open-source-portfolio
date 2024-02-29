@@ -13,13 +13,13 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { deleteCertificationAction } from "@/actions/certification.actions";
+import { deleteTechstackAction } from "@/actions/techstack.actions";
 
-export const DeleteCertificationButton = ({ id }: { id: string }) => {
+export const DeleteTechstackButton = ({ id }: { id: string }) => {
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const { mutate, isPending } = useMutation({
-    mutationFn: (id: string) => deleteCertificationAction(id),
+    mutationFn: (id: string) => deleteTechstackAction(id),
     onSuccess: (data) => {
       if (!data) {
         toast({
@@ -27,9 +27,9 @@ export const DeleteCertificationButton = ({ id }: { id: string }) => {
         });
         return;
       }
-      queryClient.invalidateQueries({ queryKey: ["certification"] });
+      queryClient.invalidateQueries({ queryKey: ["techstacks"] });
       queryClient.invalidateQueries({ queryKey: ["stats"] });
-      toast({ description: "Certificate deleted successfully!" });
+      toast({ description: "Techstack deleted successfully!" });
     },
   });
 
@@ -49,7 +49,7 @@ export const DeleteCertificationButton = ({ id }: { id: string }) => {
           <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
           <AlertDialogDescription>
             This action cannot be undone. This will permanently delete your
-            certificate from your database.
+            techstack from your database.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

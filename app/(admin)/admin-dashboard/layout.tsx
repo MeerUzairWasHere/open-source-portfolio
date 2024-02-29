@@ -2,10 +2,10 @@ import Link from "next/link";
 import { UserButton, auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import {
+  BarChart,
   Briefcase,
   CheckCircle,
   GanttChartSquare,
-  Home,
   Layers,
   LayoutDashboard,
   User,
@@ -15,9 +15,9 @@ type sideLink = { text: string; href: string; icon: React.ReactNode };
 
 const sidelinks: sideLink[] = [
   {
-    text: "Home",
+    text: "Stats",
     href: "/admin-dashboard",
-    icon: <Home className="h-4 w-4" />,
+    icon: <BarChart className="h-4 w-4" />,
   },
   {
     text: "About me",

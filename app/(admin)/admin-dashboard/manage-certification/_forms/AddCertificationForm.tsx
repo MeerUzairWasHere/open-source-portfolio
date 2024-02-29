@@ -64,6 +64,7 @@ function AddCertificationForm() {
       router.push("/admin-dashboard/manage-certification");
       toast({ description: "Certificate added successfully!" });
       queryClient.invalidateQueries({ queryKey: ["certification"] });
+      queryClient.invalidateQueries({ queryKey: ["stats"] });
       return null;
     },
   });

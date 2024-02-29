@@ -71,16 +71,17 @@ export async function deleteProjectAction(id: string): Promise<Project | null> {
     const userId = authenticateAndRedirect();
 
     try {
-        const job: Project = await prisma.project.delete({
+        const project: Project = await prisma.project.delete({
             where: {
                 id,
             },
         });
-        return job;
+        return project;
     } catch (error) {
         return null;
     }
 }
+
 export async function updateProjectAction(
     id: string,
     values: CreateAndEditProjectType
@@ -88,7 +89,7 @@ export async function updateProjectAction(
     const userId = authenticateAndRedirect();
 
     try {
-        const job: Project = await prisma.project.update({
+        const project: Project = await prisma.project.update({
             where: {
                 id,
             },
@@ -96,7 +97,7 @@ export async function updateProjectAction(
                 ...values,
             },
         });
-        return job;
+        return project;
     } catch (error) {
         return null;
     }

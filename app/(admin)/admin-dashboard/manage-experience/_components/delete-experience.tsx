@@ -30,6 +30,7 @@ export const DeleteExperienceButton = ({ id }: { id: string }) => {
         return;
       }
       queryClient.invalidateQueries({ queryKey: ["experience"] });
+      queryClient.invalidateQueries({ queryKey: ["stats"] });
       toast({ description: "Experience deleted successfully!" });
     },
   });

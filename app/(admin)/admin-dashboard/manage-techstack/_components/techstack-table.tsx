@@ -13,22 +13,22 @@ import {
 import { Card } from "@/components/ui/card";
 import { Pencil } from "lucide-react";
 import Link from "next/link";
-import { getAllProjectsAction } from "@/actions/project.actions";
-import { DeleteProjectButton } from "./delete-project";
+import { getAllTechstacksAction } from "@/actions/techstack.actions";
+import { DeleteTechstackButton } from "./delete-techstack";
 
-export const ProjectsTable = () => {
+export const TechStackTable = () => {
   const { data, isPending } = useQuery({
-    queryKey: ["projects"],
-    queryFn: () => getAllProjectsAction(),
+    queryKey: ["techstacks"],
+    queryFn: () => getAllTechstacksAction(),
   });
-  const projects = data?.projects || [];
+  const techstacks = data?.techstacks || [];
   if (isPending) return <h2 className="text-xl">Please wait...</h2>;
 
   return (
     <div className="flex flex-1 flex-col gap-4 ">
-      {projects.length < 1 ? (
+      {techstacks.length < 1 ? (
         <>
-          <h2 className="text-xl">No Projects Found...</h2>
+          <h2 className="text-xl">No Techstack Found...</h2>
         </>
       ) : (
         <>
@@ -36,12 +36,12 @@ export const ProjectsTable = () => {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Project Name</TableHead>
+                  <TableHead>Techstack Name</TableHead>
                   <TableHead className="text-center">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {projects.map(({ id, title }) => (
+                {techstacks.map(({ id, title }) => (
                   <TableRow key={id}>
                     <TableCell>{title}</TableCell>
                     <TableCell className="flex justify-center gap-2 md:gap-20">
@@ -50,12 +50,12 @@ export const ProjectsTable = () => {
                         size="sm"
                         asChild
                         variant="outline">
-                        <Link href={`manage-projects/edit-project/${id}`}>
+                        <Link href={`manage-techstack/edit-techstack/${id}`}>
                           <Pencil className="w-3 h-3 " />
                           Edit
                         </Link>
                       </Button>
-                      <DeleteProjectButton id={id} />
+                      <DeleteTechstackButton id={id} />
                     </TableCell>
                   </TableRow>
                 ))}

@@ -72,6 +72,9 @@ function EditExperienceForm({ experienceId }: { experienceId: string }) {
         queryKey: ["experience"],
       });
       queryClient.invalidateQueries({
+        queryKey: ["stats"],
+      });
+      queryClient.invalidateQueries({
         queryKey: ["experience", experienceId],
       });
       return null;

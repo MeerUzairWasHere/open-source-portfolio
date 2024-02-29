@@ -86,6 +86,7 @@ function EditProjectForm({ projectId }: { projectId: string }) {
       router.push("/admin-dashboard/manage-projects");
       toast({ description: "Project updated successfully!" });
       queryClient.invalidateQueries({ queryKey: ["projects"] });
+      queryClient.invalidateQueries({ queryKey: ["stats"] });
       queryClient.invalidateQueries({ queryKey: ["project", projectId] });
       return null;
     },

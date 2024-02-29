@@ -28,6 +28,7 @@ export const DeleteProjectButton = ({ id }: { id: string }) => {
         return;
       }
       queryClient.invalidateQueries({ queryKey: ["projects"] });
+      queryClient.invalidateQueries({ queryKey: ["stats"] });
       toast({ description: "Project deleted successfully!" });
     },
   });

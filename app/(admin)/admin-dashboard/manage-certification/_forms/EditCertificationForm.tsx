@@ -87,6 +87,9 @@ function EditCertificationForm({ certificateId }: { certificateId: string }) {
       queryClient.invalidateQueries({
         queryKey: ["certificate", certificateId],
       });
+      queryClient.invalidateQueries({
+        queryKey: ["stats"],
+      });
       return null;
     },
   });

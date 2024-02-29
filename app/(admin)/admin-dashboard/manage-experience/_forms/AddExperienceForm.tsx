@@ -63,6 +63,7 @@ function AddExperienceForm() {
       router.push("/admin-dashboard/manage-experience");
       toast({ description: "Experience added successfully!" });
       queryClient.invalidateQueries({ queryKey: ["experience"] });
+      queryClient.invalidateQueries({ queryKey: ["stats"] });
       return null;
     },
   });
