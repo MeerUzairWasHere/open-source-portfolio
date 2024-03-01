@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
 const inter = Inter({ subsets: ["latin"] });
-
+import { dark } from "@clerk/themes";
 export const metadata: Metadata = {
   title: "Mir Uzair - Portfolio",
   description: "An open-source portfolio",
@@ -16,7 +16,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+      }}>
       <html lang="en" suppressHydrationWarning>
         <body className={inter.className}>
           <Providers>{children}</Providers>
