@@ -20,8 +20,8 @@ const sidelinks: sideLink[] = [
     icon: <BarChart className="h-4 w-4" />,
   },
   {
-    text: "About me",
-    href: "/admin-dashboard/manage-about-me",
+    text: "Admin",
+    href: "/admin-dashboard/manage-admin",
     icon: <User className="h-4 w-4" />,
   },
   {

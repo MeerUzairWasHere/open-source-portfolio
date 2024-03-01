@@ -37,13 +37,13 @@ datasource db {
   }
  
   model Experience {
-  id          String      @id @default(auto()) @map("_id") @db.ObjectId
-  positionName     String
+  id              String      @id @default(auto()) @map("_id") @db.ObjectId
+  positionName    String
   companyName     String
-  companyLocation    String
-  startDate   DateTime
-  endDate     DateTime
-  learned     Json[]
+  companyLocation String
+  startDate       DateTime
+  endDate         DateTime
+  learned         Json[]
   }
 
 model Techstack{
@@ -55,4 +55,23 @@ model Techstack{
   imageUrl      String
 }
 
- 
+ model Admin {
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  adminUserId  String
+  name         String    
+  imageUrl     String
+  position     String
+  location     String    
+  introduction String     
+  education    String    
+  skills       Json[]  
+  github       String?
+  linkedIn       String?
+  whatsapp       String?
+  facebook       String?
+  instagram       String?
+  discord       String?
+  website       String?
+  twitter       String?
+  email       String?
+}
