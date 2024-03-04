@@ -117,7 +117,7 @@ export const Header = ({
         Hey! <br /> I'm {name}
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-        "{introduction}"
+        {introduction}
       </p>
     </div>
   );
