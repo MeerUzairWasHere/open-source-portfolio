@@ -62,7 +62,6 @@ export async function deleteCertificationAction(id: string): Promise<Certificate
 
 export async function getSingleCertificationAction(id: string): Promise<CertificateType | null> {
     let certification: CertificateType | null = null;
-    authenticateAndRedirect();
 
     try {
         certification = await prisma.certification.findUnique({

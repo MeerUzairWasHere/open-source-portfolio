@@ -14,6 +14,8 @@ type Stats = {
     count: number;
 }
 export async function getAllStats(): Promise<{ stats: Stats[] }> {
+    const userId = authenticateAndRedirect();
+
     try {
         const projects = await prisma.project.count()
         const certifications = await prisma.certification.count()

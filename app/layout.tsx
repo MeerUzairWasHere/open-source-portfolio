@@ -20,7 +20,7 @@ export default function RootLayout({
       appearance={{
         baseTheme: dark,
       }}>
-      <html lang="en" suppressHydrationWarning>
+      <html className="scrollbar" lang="en" suppressHydrationWarning>
         <body className={inter.className}>
           <Providers>{children}</Providers>
         </body>

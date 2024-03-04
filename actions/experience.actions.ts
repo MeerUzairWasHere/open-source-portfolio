@@ -63,7 +63,6 @@ export async function deleteExperienceAction(id: string): Promise<ExperienceType
 
 export async function getSingleExperienceAction(id: string): Promise<ExperienceType | null> {
     let experience: ExperienceType | null = null;
-    authenticateAndRedirect();
 
     try {
         experience = await prisma.experience.findUnique({

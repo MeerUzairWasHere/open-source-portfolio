@@ -2,7 +2,6 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "@/components/ui/toaster";
 
 function Providers({ children }: { children: React.ReactNode }) {
@@ -27,7 +26,6 @@ function Providers({ children }: { children: React.ReactNode }) {
         <Toaster />
         <QueryClientProvider client={queryClient}>
           {children}
-          <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
       </ThemeProvider>
     </>

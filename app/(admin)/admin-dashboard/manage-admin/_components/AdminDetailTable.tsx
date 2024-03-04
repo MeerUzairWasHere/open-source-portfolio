@@ -11,6 +11,8 @@ import avatar from "@/public/placeholder-user.jpg";
 import Image from "next/image";
 import { DeleteAdminButton } from "./DeleteUserButton";
 import { PageHeader } from "@/components/PageHeader";
+
+
 export const AdminDetailTable = () => {
   const { data, isPending } = useQuery({
     queryKey: ["admin"],

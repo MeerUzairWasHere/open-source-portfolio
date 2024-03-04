@@ -47,10 +47,32 @@ export async function getAllProjectsAction(): Promise<{
         return { projects: [] };
     }
 }
+export async function getRandomProjectsAction(): Promise<{ title: string; link: string; thumbnail: string }[]> {
+    try {
+        const randomProjects = await prisma.project.findMany({
+            take: 15,
+            orderBy: {
+                id: 'asc'
+            }
+        });
+
+        // Map the random projects to the desired format
+        const projects = randomProjects.map(project => ({
+            title: project.title,
+            link: project.liveURL,
+            thumbnail: project.screenshot
+        }));
+
+        return projects;
+    } catch (error) {
+        console.error('Error fetching and mapping random projects:', error);
+        throw error;
+    }
+}
+
 
 export async function getSingleProjectAction(id: string): Promise<Project | null> {
     let project: Project | null = null;
-    const userId = authenticateAndRedirect();
 
     try {
         project = await prisma.project.findUnique({

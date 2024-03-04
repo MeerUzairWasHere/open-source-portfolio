@@ -5,7 +5,6 @@ import prisma from "@/db";
 import { auth } from '@clerk/nextjs';
 import { redirect } from 'next/navigation';
 import { createAndEditAdminSchema, CreateAndEditAdminType, AdminType } from '@/lib/types/admin-types';
-import { IdCardIcon } from "@radix-ui/react-icons";
 
 function authenticateAndRedirect(): string {
     const { userId } = auth();
@@ -44,14 +43,9 @@ export async function createAdminAction(values: CreateAndEditAdminType): Promise
 }
 
 export async function getAdminDetail(): Promise<AdminType | null> {
-    const adminUserId = authenticateAndRedirect()
     try {
 
-        const admin: AdminType[] = await prisma.admin.findMany({
-            where: {
-                adminUserId
-            }
-        })
+        const admin: AdminType[] = await prisma.admin.findMany({})
         return admin[0]
     } catch (error) {
         console.log(error)

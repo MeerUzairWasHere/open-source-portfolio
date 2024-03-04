@@ -87,3 +87,27 @@ body,
   --s-accent: 100%;
   --l-accent: 61%;
 }
+
+
+ @layer utilities {
+    /* Scrollbar width */
+    .scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    /* Scrollbar thumb on hover */
+    .scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #7a7a7a;
+    }
+
+    /* Scrollbar thumb */
+    .scrollbar::-webkit-scrollbar-thumb {
+      background: #484848;
+      border-radius: 10px;
+    }
+
+    /* Scrollbar track */
+    .scrollbar::-webkit-scrollbar-track {
+      background: #212121;
+    }
+  }
