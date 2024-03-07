@@ -67,6 +67,8 @@ function AddProjectForm() {
       toast({ description: "Project added successfully!" });
       queryClient.invalidateQueries({ queryKey: ["projects"] });
       queryClient.invalidateQueries({ queryKey: ["stats"] });
+      queryClient.invalidateQueries({ queryKey: ["random-projects"] });
+
       return null;
     },
   });

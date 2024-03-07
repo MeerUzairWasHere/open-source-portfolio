@@ -12,7 +12,7 @@ const HomePage = async () => {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ["projects"],
+    queryKey: ["random-projects"],
     queryFn: () => getRandomProjectsAction(),
   });
   await queryClient.prefetchQuery({

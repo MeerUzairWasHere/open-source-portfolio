@@ -9,7 +9,7 @@ import ContactMe from "./ContactMe";
 
 const HomePageContainer = () => {
   const { data: projectsData, isPending: projectsIsLoading } = useQuery({
-    queryKey: ["projects"],
+    queryKey: ["random-projects"],
     queryFn: () => getRandomProjectsAction(),
   });
   const { data: adminData, isPending: adminDataIsLoading } = useQuery({
@@ -23,8 +23,9 @@ const HomePageContainer = () => {
     introduction: adminData?.introduction || "",
   };
 
-  if (projectsIsLoading || adminDataIsLoading)
+  if (projectsIsLoading || adminDataIsLoading) {
     return <h2 className="text-xl">Please wait...</h2>;
+  }
 
   return (
     <>

@@ -88,6 +88,7 @@ function EditProjectForm({ projectId }: { projectId: string }) {
       queryClient.invalidateQueries({ queryKey: ["projects"] });
       queryClient.invalidateQueries({ queryKey: ["stats"] });
       queryClient.invalidateQueries({ queryKey: ["project", projectId] });
+      queryClient.invalidateQueries({ queryKey: ["random-projects"] });
       return null;
     },
   });
