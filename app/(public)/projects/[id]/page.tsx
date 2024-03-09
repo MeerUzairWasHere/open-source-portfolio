@@ -1,4 +1,4 @@
 const ProjectDetails = () => {
-  return <div className="mt-10">ProjectDetails</div>;
+  return <div className="mt-20">ProjectDetails</div>;
 };
 export default ProjectDetails;
