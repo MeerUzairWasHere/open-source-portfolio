@@ -41,6 +41,7 @@
     "react-dom": "^18",
     "react-easy-sort": "^1.6.0",
     "react-hook-form": "^7.50.1",
+    "sharp": "^0.33.2",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "uuid": "^9.0.1",
