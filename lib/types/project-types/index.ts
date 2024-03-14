@@ -58,8 +58,6 @@ export const createAndEditProjectSchema = z.object({
     }).max(3, { message: 'maximum limit 3.' }),
     description: z.string().min(2, {
         message: 'Description must be at least 30 characters.',
-    }).max(300, {
-        message: "Description cannot be more than 300 characters"
     })
 });
 

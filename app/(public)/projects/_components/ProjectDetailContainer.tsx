@@ -2,7 +2,7 @@
 import { getSingleProjectAction } from "@/actions/project.actions";
 import { Mac } from "@/components/Mac";
 import { Button } from "@/components/ui/button";
-import { Project } from "@/lib/types/project-types";
+import { ObjectTag, Project } from "@/lib/types/project-types";
 import { useQuery } from "@tanstack/react-query";
 import { MoveLeft } from "lucide-react";
 import Link from "next/link";
@@ -15,10 +15,8 @@ const ProjectDetailContainer = ({ projectId }: { projectId: string }) => {
 
   return (
     <>
-      <Mac {...(data as Project)} />
-      <div className="mt-10 max-w-7xl mx-auto flex">
-        <h1>Description:{data?.description || ""}</h1>{" "}
-        <Button asChild>
+      <div className="flex px-4  items-center justify-end w-full">
+        <Button className="  mt-6" asChild>
           <Link href=".">
             <>
               <MoveLeft width={10} className="mr-1" /> Back
@@ -26,7 +24,66 @@ const ProjectDetailContainer = ({ projectId }: { projectId: string }) => {
           </Link>
         </Button>
       </div>
-      <div className="h-[3000px]"></div>
+      <Mac {...(data as Project)} />
+
+      <div className="md:py-10">
+        <div className="container px-4 md:px-6">
+          <div className="grid max-w-6xl gap-10 mx-auto items-start md:space-y-5 lg:grid-cols-3 lg:gap-16 lg:space-y-0">
+            <div className="space-y-4 lg:col-span-2 lg:space-y-6">
+              <div className="space-y-4">
+                <div className="inline-block rounded-sm capitalize bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800">
+                  {data?.projectType}
+                </div>
+                <h1 className="text-3xl   font-bold tracking-tighter capitalize sm:text-4xl">
+                  {data?.title}
+                </h1>
+                <p className="text-gray-500 capitalize dark:text-gray-400">
+                  ― {data?.oneLiner}
+                </p>
+              </div>
+              <div className="space-y-4 text-gray-500 text-sm text-justify   dark:text-gray-400">
+                <p>{data?.description}</p>
+              </div>
+            </div>
+            <div className="flex flex-col gap-4">
+              <div className="md:flex hidden flex-col gap-2">
+                <Button asChild>
+                  <Link target="_blank" href={data?.liveURL || ""}>
+                    Live
+                  </Link>
+                </Button>
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="text-lg font-bold">Tech Stack:</h3>
+                {data?.techStack?.map((tech: any) => (
+                  <p
+                    className="inline-block rounded-full capitalize bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800"
+                    key={tech?.id}>
+                    #{tech?.text}
+                  </p>
+                ))}
+              </div>
+              <div className="flex flex-wrap  items-center gap-2">
+                <h3 className="text-lg font-bold">Keywords:</h3>
+                {data?.keywords?.map((tech: any) => (
+                  <p
+                    className="inline-block rounded-full capitalize bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800"
+                    key={tech?.id}>
+                    #{tech?.text}
+                  </p>
+                ))}
+              </div>
+              <div className="md:hidden flex flex-col gap-2">
+                <Button asChild>
+                  <Link target="_blank" href={data?.liveURL || ""}>
+                    Live
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
