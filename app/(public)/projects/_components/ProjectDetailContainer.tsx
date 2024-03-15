@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Project } from "@/lib/types/project-types";
 import { useQuery } from "@tanstack/react-query";
-import { MoveLeft } from "lucide-react";
+import { MoveLeft, MoveRight } from "lucide-react";
 import Link from "next/link";
 
 const ProjectDetailContainer = ({ projectId }: { projectId: string }) => {
@@ -32,9 +32,9 @@ const ProjectDetailContainer = ({ projectId }: { projectId: string }) => {
           <div className="grid max-w-6xl gap-10 mx-auto items-start md:space-y-5 lg:grid-cols-3 lg:gap-16 lg:space-y-0">
             <div className="space-y-4 lg:col-span-2 lg:space-y-6">
               <div className="space-y-4">
-                <div className="inline-block rounded-sm capitalize bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800">
+                <Badge variant="secondary" className="capitalize p-2">
                   {data?.projectType}
-                </div>
+                </Badge>
                 <h1 className="text-3xl   font-bold tracking-tighter capitalize sm:text-4xl">
                   {data?.title}
                 </h1>
@@ -50,7 +50,7 @@ const ProjectDetailContainer = ({ projectId }: { projectId: string }) => {
               <div className="md:flex hidden flex-col gap-2">
                 <Button asChild>
                   <Link target="_blank" href={data?.liveURL || ""}>
-                    Live
+                    See Live <MoveRight size={10} className="ml-2" />
                   </Link>
                 </Button>
               </div>
@@ -73,7 +73,7 @@ const ProjectDetailContainer = ({ projectId }: { projectId: string }) => {
               <div className="md:hidden flex flex-col gap-2">
                 <Button asChild>
                   <Link target="_blank" href={data?.liveURL || ""}>
-                    Live
+                    See Lve <MoveRight size={10} className="ml-2" />
                   </Link>
                 </Button>
               </div>
