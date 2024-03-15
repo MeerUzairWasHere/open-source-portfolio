@@ -1,8 +1,9 @@
 "use client";
 import { getSingleProjectAction } from "@/actions/project.actions";
 import { Mac } from "@/components/Mac";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ObjectTag, Project } from "@/lib/types/project-types";
+import { Project } from "@/lib/types/project-types";
 import { useQuery } from "@tanstack/react-query";
 import { MoveLeft } from "lucide-react";
 import Link from "next/link";
@@ -56,21 +57,17 @@ const ProjectDetailContainer = ({ projectId }: { projectId: string }) => {
               <div className="flex flex-wrap items-center gap-2">
                 <h3 className="text-lg font-bold">Tech Stack:</h3>
                 {data?.techStack?.map((tech: any) => (
-                  <p
-                    className="inline-block rounded-full capitalize bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800"
-                    key={tech?.id}>
+                  <Badge key={tech?.id} className="mx-1 capitalize">
                     #{tech?.text}
-                  </p>
+                  </Badge>
                 ))}
               </div>
               <div className="flex flex-wrap  items-center gap-2">
                 <h3 className="text-lg font-bold">Keywords:</h3>
-                {data?.keywords?.map((tech: any) => (
-                  <p
-                    className="inline-block rounded-full capitalize bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800"
-                    key={tech?.id}>
-                    #{tech?.text}
-                  </p>
+                {data?.keywords?.map((key: any) => (
+                  <Badge key={key?.id} className="mx-1 capitalize">
+                    #{key?.text}
+                  </Badge>
                 ))}
               </div>
               <div className="md:hidden flex flex-col gap-2">
