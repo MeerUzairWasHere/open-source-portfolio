@@ -58,7 +58,7 @@ const ProjectDetailContainer = ({ projectId }: { projectId: string }) => {
                 <h3 className="text-lg font-bold">Tech Stack:</h3>
                 {data?.techStack?.map((tech: any) => (
                   <Badge key={tech?.id} className="mx-1 capitalize">
-                    #{tech?.text}
+                    {tech?.text}
                   </Badge>
                 ))}
               </div>
