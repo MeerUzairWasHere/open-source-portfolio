@@ -37,7 +37,7 @@ export const DeleteAdminButton = ({ id }: { id: string }) => {
       <AlertDialogTrigger asChild>
         <Button
           className="flex items-center text-xsm gap-2"
-          size="sm"
+          size="default"
           variant="destructive">
           <Trash className="w-3 h-3" />
           Delete
