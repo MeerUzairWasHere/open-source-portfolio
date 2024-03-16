@@ -12,7 +12,6 @@ import Image from "next/image";
 import { DeleteAdminButton } from "./DeleteUserButton";
 import { PageHeader } from "@/components/PageHeader";
 
-
 export const AdminDetailTable = () => {
   const { data, isPending } = useQuery({
     queryKey: ["admin"],
@@ -44,7 +43,7 @@ export const AdminDetailTable = () => {
             </AvatarFallback>
           </Avatar>
           <div className="flex flex-col justify-end gap-4">
-            <Button size="sm" asChild variant="outline">
+            <Button asChild>
               <Link href={`manage-admin/edit-admin/${id}`}>
                 <Pencil className="w-3 h-3 mr-3" />
                 Edit
