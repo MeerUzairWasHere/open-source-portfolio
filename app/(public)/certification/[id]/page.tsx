@@ -4,9 +4,9 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 
-import { Mac } from "@/components/Mac";
 import { getSingleProjectAction } from "@/actions/project.actions";
 import CertificationDetailContainer from "../_components/CertificationDetailContainer";
+ 
 
 const ProjectDetails = async ({ params }: { params: { id: string } }) => {
   const queryClient = new QueryClient();
@@ -17,6 +17,7 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
   });
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
+     
       <CertificationDetailContainer certificationId={params.id} />
     </HydrationBoundary>
   );
