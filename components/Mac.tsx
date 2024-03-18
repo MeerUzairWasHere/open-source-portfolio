@@ -7,13 +7,9 @@ type Props = {
 };
 export function Mac({ oneLiner, screenshot, title }: Props) {
   return (
-    <div className="overflow-hidden dark:bg-[#000] bg-white w-full">
+    <div className="overflow-hidden  dark:bg-[#000] bg-white w-full">
       <MacbookScroll
-        title={
-          <span>
-            {title} <br /> <br />"{oneLiner}"
-          </span>
-        }
+        title={<span>{title}</span>}
         src={screenshot}
         showGradient={false}
       />

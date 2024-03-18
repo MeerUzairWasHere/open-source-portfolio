@@ -13,7 +13,7 @@ const ProjectCardsContainer = () => {
   if (projects.length <= 0)
     return <h1 className="text-xl text-center  ">No projects found!</h1>;
   return (
-    <div className="max-w-7xl p-4 mx-auto gap-6    grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ">
+    <div className="max-w-7xl p-4 mx-auto gap-6  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ">
       {projects.map((project) => (
         <Card
           key={project?.id}
