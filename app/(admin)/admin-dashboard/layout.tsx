@@ -7,7 +7,7 @@ import { LayoutDashboard } from "lucide-react";
 import { sidelinks } from "@/lib/sidelinks";
 
 export default function AdminDashboardLayout({
-  children, 
+  children,
 }: {
   children: React.ReactNode;
 }) {
@@ -48,7 +48,7 @@ export default function AdminDashboardLayout({
             </div>
           </div>
         </header>
-        <main className="p-4  ">{children}</main>
+        <main className="p-4 mb-10">{children}</main>
       </div>
       <AdminMobileNavbar />
     </div>
