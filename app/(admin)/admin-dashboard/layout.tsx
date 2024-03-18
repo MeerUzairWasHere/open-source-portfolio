@@ -7,7 +7,7 @@ import { LayoutDashboard } from "lucide-react";
 import { sidelinks } from "@/lib/sidelinks";
 
 export default function AdminDashboardLayout({
-  children,
+  children, 
 }: {
   children: React.ReactNode;
 }) {
