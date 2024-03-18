@@ -73,7 +73,7 @@ const ProjectDetailContainer = ({ projectId }: { projectId: string }) => {
               <div className="md:hidden flex flex-col gap-2">
                 <Button asChild>
                   <Link target="_blank" href={data?.liveURL || ""}>
-                    See Lve <MoveRight size={10} className="ml-2" />
+                    See Live <MoveRight size={10} className="ml-2" />
                   </Link>
                 </Button>
               </div>

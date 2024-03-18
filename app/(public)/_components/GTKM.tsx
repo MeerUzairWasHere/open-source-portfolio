@@ -29,7 +29,7 @@ export const cards = [
 
 const GTKM = () => {
   return (
-    <div className="max-w-8xl mx-auto px-8">
+    <div className="max-w-8xl mx-auto px-4">
       <HoverEffect items={cards} />
     </div>
   );
