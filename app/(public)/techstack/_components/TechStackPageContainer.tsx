@@ -46,7 +46,7 @@ const TechStackPageContainer = () => {
           </h1>
           <div className=" p-4  gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
             {skills?.map((techstack) => (
-              <TechstackCard {...techstack} />
+              <TechstackCard key={techstack?.id} {...techstack} />
             ))}
           </div>
         </>
@@ -58,7 +58,7 @@ const TechStackPageContainer = () => {
           </h1>
           <div className=" p-4  gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
             {devTools?.map((techstack) => (
-              <TechstackCard {...techstack} />
+              <TechstackCard key={techstack?.id} {...techstack} />
             ))}
           </div>
         </>
@@ -70,7 +70,7 @@ const TechStackPageContainer = () => {
           </h1>
           <div className=" p-4  gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
             {apps?.map((techstack) => (
-              <TechstackCard {...techstack} />
+              <TechstackCard key={techstack?.id} {...techstack} />
             ))}
           </div>
         </>
@@ -82,7 +82,7 @@ const TechStackPageContainer = () => {
           </h1>
           <div className=" p-4  gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
             {games?.map((techstack) => (
-              <TechstackCard {...techstack} />
+              <TechstackCard key={techstack?.id} {...techstack} />
             ))}
           </div>
         </>
@@ -94,7 +94,7 @@ const TechStackPageContainer = () => {
           </h1>
           <div className=" p-4  gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
             {hardware?.map((techstack) => (
-              <TechstackCard {...techstack} />
+              <TechstackCard key={techstack?.id} {...techstack} />
             ))}
           </div>
         </>
