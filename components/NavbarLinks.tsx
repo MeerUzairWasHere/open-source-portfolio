@@ -12,7 +12,8 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { SignedIn, useUser } from "@clerk/nextjs";
+import { SignedIn, useAuth } from "@clerk/nextjs";
+import { useMyContext } from "@/app/MyContext";
 
 export const links: { title: string; href: string }[] = [
   {
@@ -42,9 +43,8 @@ export const links: { title: string; href: string }[] = [
 ];
 
 export function NavbarLinks() {
-  const { user } = useUser();
-  const userEmail = user?.emailAddresses[0]?.emailAddress;
-
+  const data = useMyContext();
+  const { userId } = useAuth();
   return (
     <NavigationMenu className="hidden md:block">
       <NavigationMenuList>
@@ -58,7 +58,7 @@ export function NavbarLinks() {
           </NavigationMenuItem>
         ))}
         <SignedIn>
-          {userEmail === "meer.uxair007@gmail.com" && (
+          {data?.adminUserId === userId && (
             <NavigationMenuItem>
               <Link href="/admin-dashboard" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>

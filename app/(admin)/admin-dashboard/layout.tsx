@@ -6,6 +6,7 @@ import {
   Briefcase,
   CheckCircle,
   GanttChartSquare,
+  Home,
   Layers,
   LayoutDashboard,
   User,
@@ -14,6 +15,11 @@ import { ThemeToggler } from "@/components/ThemeToggler";
 type sideLink = { text: string; href: string; icon: React.ReactNode };
 
 const sidelinks: sideLink[] = [
+  {
+    text: "Home",
+    href: "/",
+    icon: <Home className="h-4 w-4" />,
+  },
   {
     text: "Stats",
     href: "/admin-dashboard",
