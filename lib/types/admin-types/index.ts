@@ -54,7 +54,9 @@ export const createAndEditAdminSchema = z.object({
     ).min(1, {
         message: 'at least one skill is required',
     }),
-    github: z.string().optional(),
+    github: z.string().min(1, {
+        message: "github is required!"
+    }),
     linkedIn: z.string().optional(),
     whatsapp: z.string().optional(),
     facebook: z.string().optional(),
@@ -62,7 +64,9 @@ export const createAndEditAdminSchema = z.object({
     discord: z.string().optional(),
     website: z.string().optional(),
     twitter: z.string().optional(),
-    email: z.string().email().optional(),
+    email: z.string().email().min(1, {
+        message: "email is required!"
+    }),
 })
 
 export type CreateAndEditAdminType = z.infer<typeof createAndEditAdminSchema>
