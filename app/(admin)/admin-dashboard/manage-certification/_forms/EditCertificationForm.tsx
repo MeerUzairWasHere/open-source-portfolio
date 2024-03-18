@@ -129,7 +129,7 @@ function EditCertificationForm({ certificateId }: { certificateId: string }) {
           <div className="flex flex-col gap-3">
             <CustomFormFieldFile
               name="screenshot"
-              title="project screenshot"
+              title="Certification screenshot"
               value={screenshotId}
               control={form.control}
             />

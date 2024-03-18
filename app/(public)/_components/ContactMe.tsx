@@ -15,7 +15,7 @@ const ContactMe = () => {
           <br className="hidden lg:inline-block" /> I’m ready when you are.
         </p>
       </div>
-      <Button asChild variant="default" size="xl">
+      <Button  asChild variant="default" size="xl">
         <Link href={`mailto:${data?.email}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

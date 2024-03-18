@@ -12,10 +12,11 @@ const AboutPageContainer = () => {
     queryKey: ["admin"],
     queryFn: () => getAdminDetail(),
   });
+
   if (isPending) return <h1>Loading...</h1>;
   return (
     <>
-      {data && (
+      {data ? (
         <div className="max-w-4xl mx-auto  shadow-lg rounded-lg">
           <div className="flex flex-col items-center text-center">
             <Avatar>
@@ -106,6 +107,10 @@ const AboutPageContainer = () => {
             </div>
           </div>
         </div>
+      ) : (
+        <h1 className="mt-10 text-center uppercase text-2xl">
+          Add admin details in admin dashboard
+        </h1>
       )}
     </>
   );

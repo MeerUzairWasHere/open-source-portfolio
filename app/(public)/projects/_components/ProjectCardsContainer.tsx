@@ -10,7 +10,7 @@ const ProjectCardsContainer = () => {
   const projects = data?.projects || [];
   if (isPending) return <h2 className="text-xl">Please wait...</h2>;
 
-  if (projects.length < 0)
+  if (projects.length <= 0)
     return <h1 className="text-xl text-center  ">No projects found!</h1>;
   return (
     <div className="max-w-7xl p-4 mx-auto gap-6    grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ">

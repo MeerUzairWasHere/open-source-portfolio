@@ -111,7 +111,7 @@ function AddCertificationForm() {
           <div className="flex flex-col gap-3">
             <CustomFormFieldFile
               name="screenshot"
-              title="project screenshot"
+              title="Certification screenshot"
               value={screenshotId}
               control={form.control}
             />

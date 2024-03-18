@@ -18,7 +18,7 @@ const Footer = () => {
       <div className="container flex flex-col items-center justify-center gap-2 px-4 text-center md:gap-4 md:flex-row md:justify-between lg:px-6">
         <div className="order-2 flex items-center gap-2 text-sm md:order-1 md:gap-4 lg:text-base">
           <span className="font-semibold uppercase">
-            © {new Date().getFullYear()} {data?.name}
+            © {new Date().getFullYear()} {data?.name || "Your Logo"}.
           </span>
           <span className="text-gray-500 dark:text-gray-400">
             All rights reserved.
@@ -26,17 +26,19 @@ const Footer = () => {
         </div>
 
         <div className="order-3 flex items-center gap-4 md:order-3 md:gap-6">
-          <Link
-            className="rounded-full w-6 h-6 overflow-hidden border"
-            href="/">
-            <Image
-              alt="Avatar"
-              className="rounded-full border aspect-square object-cover"
-              height="32"
-              src={data?.imageUrl || ""}
-              width="32"
-            />
-          </Link>
+          {data?.website && (
+            <Link
+              className="rounded-full w-6 h-6 overflow-hidden border"
+              href="/">
+              <Image
+                alt="Avatar"
+                className="rounded-full border aspect-square object-cover"
+                height="32"
+                src={data?.imageUrl || ""}
+                width="32"
+              />
+            </Link>
+          )}
           {data?.github && (
             <Link
               className="rounded-full w-6 h-6 flex items-center justify-center border border-gray-200 hover:bg-gray-100 hover:text-gray-900 dark:border-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-50"

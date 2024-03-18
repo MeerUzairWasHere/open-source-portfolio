@@ -24,12 +24,18 @@ const HomePageContainer = () => {
   };
 
   if (projectsIsLoading || adminDataIsLoading) {
-    return <h2 className="text-xl">Please wait...</h2>;
+    return <h2 className="text-xl ">Please wait...</h2>;
   }
 
   return (
     <>
-      <HeroParallax admin={admin} projects={projects} />
+      {projects?.length > 3 ? (
+        <HeroParallax admin={admin} projects={projects} />
+      ) : (
+        <h1 className="mt-10 text-center uppercase text-2xl">
+          Add atleast 3 projects to showcase on homepage
+        </h1>
+      )}
       <GTKM />
       <ContactMe />
     </>

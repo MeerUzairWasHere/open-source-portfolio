@@ -16,7 +16,6 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
   });
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-     
       <ProjectDetailContainer projectId={params?.id} />
     </HydrationBoundary>
   );
