@@ -81,7 +81,6 @@ export async function updateAdminDetails(id: string, values: CreateAndEditAdminT
                 ...values,
             },
         });
-        console.log(admin)
         return admin;
     } catch (error) {
         return null;
