@@ -17,7 +17,7 @@ const AboutPageContainer = () => {
   return (
     <>
       {data ? (
-        <div className="max-w-4xl mx-auto  shadow-lg rounded-lg">
+        <div className="max-w-4xl mx-auto  rounded-lg">
           <div className="flex flex-col items-center text-center">
             <Avatar>
               <AvatarImage

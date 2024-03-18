@@ -36,10 +36,8 @@ export const TechStackTable = () => {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Techstack Name</TableHead>
-                  <TableHead className="hidden md:block">
-                    Techstack Category
-                  </TableHead>
+                  <TableHead>Title</TableHead>
+                  <TableHead>Category</TableHead>
                   <TableHead className="text-center">Actions</TableHead>
                 </TableRow>
               </TableHeader>
@@ -47,9 +45,7 @@ export const TechStackTable = () => {
                 {techstacks.map(({ id, title, category }) => (
                   <TableRow key={id}>
                     <TableCell>{title}</TableCell>
-                    <TableCell className="hidden md:block">
-                      {category}
-                    </TableCell>
+                    <TableCell>{category}</TableCell>
                     <TableCell className="flex justify-center gap-2 md:gap-20">
                       <Button
                         className="flex items-center text-xsm gap-2 "
