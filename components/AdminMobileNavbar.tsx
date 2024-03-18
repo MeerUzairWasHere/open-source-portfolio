@@ -3,7 +3,7 @@ import Link from "next/link";
 import { SignedOut, useAuth } from "@clerk/nextjs";
 import { LockKeyhole, Terminal } from "lucide-react";
 import { useMyContext } from "@/app/MyContext";
-import { sidelinks } from "@/app/(admin)/admin-dashboard/layout";
+import { sidelinks } from "@/lib/sidelinks";
 
 const AdminMobileNavbar = () => {
   const { userId } = useAuth();
