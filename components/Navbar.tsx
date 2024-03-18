@@ -2,8 +2,6 @@
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { NavbarLinks } from "./NavbarLinks";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
 import Link from "next/link";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { ThemeToggler } from "./ThemeToggler";
