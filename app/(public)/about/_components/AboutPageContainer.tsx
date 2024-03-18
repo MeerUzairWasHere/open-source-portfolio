@@ -28,7 +28,7 @@ const AboutPageContainer = () => {
             <h1 className="mt-4 text-2xl font-semibold">{data?.name}</h1>
             <p className="text-sm text-gray-600">{data?.position}</p>
             <p className="text-sm text-gray-600">{data?.location}</p>
-            <p className="mt-4">{data?.introduction}</p>
+            <p className="mt-4 px-4">{data?.introduction}</p>
             <p className="mt-4 font-medium">{data?.education}</p>
             <div className="mt-4">
               <h2 className="text-lg font-semibold">Skills</h2>
