@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { NavbarLinks } from "./NavbarLinks";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
-import { MobileSidebar } from "./MobileSidebar";
 import Link from "next/link";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { ThemeToggler } from "./ThemeToggler";
@@ -32,20 +31,7 @@ export const Navbar = () => {
               </Button>
             </SignedOut>
           </div>
-          <Sheet>
-            <Button
-              className="mr-2 block md:hidden"
-              asChild
-              variant="ghost"
-              size="sm">
-              <SheetTrigger>
-                <Menu className="h-4 w-4" />
-              </SheetTrigger>
-            </Button>
-            <SheetContent>
-              <MobileSidebar />
-            </SheetContent>
-          </Sheet>
+         
         </div>
       </div>
     </header>

@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { UserButton, auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
+import { ThemeToggler } from "@/components/ThemeToggler";
+import AdminMobileNavbar from "@/components/AdminMobileNavbar";
+type sideLink = { text: string; href: string; icon: React.ReactNode };
+
 import {
   BarChart,
   Briefcase,
@@ -8,50 +12,46 @@ import {
   GanttChartSquare,
   Home,
   Layers,
-  LayoutDashboard,
   User,
+  LayoutDashboard,
 } from "lucide-react";
-import { ThemeToggler } from "@/components/ThemeToggler";
-type sideLink = { text: string; href: string; icon: React.ReactNode };
-
-const sidelinks: sideLink[] = [
+export const sidelinks: sideLink[] = [
   {
     text: "Home",
     href: "/",
-    icon: <Home className="h-4 w-4" />,
+    icon: <Home />,
   },
   {
     text: "Stats",
     href: "/admin-dashboard",
-    icon: <BarChart className="h-4 w-4" />,
+    icon: <BarChart />,
   },
   {
     text: "Admin",
     href: "/admin-dashboard/manage-admin",
-    icon: <User className="h-4 w-4" />,
+    icon: <User />,
   },
   {
     text: "Projects",
     href: "/admin-dashboard/manage-projects",
-    icon: <GanttChartSquare className="h-4 w-4" />,
+    icon: <GanttChartSquare />,
   },
   {
     text: "Certification",
     href: "/admin-dashboard/manage-certification",
-    icon: <CheckCircle className="h-4 w-4" />,
+    icon: <CheckCircle />,
   },
   {
     text: "Experience",
     href: "/admin-dashboard/manage-experience",
-    icon: <Briefcase className="h-4 w-4" />,
+    icon: <Briefcase />,
   },
   {
     text: "Techstack",
     href: "/admin-dashboard/manage-techstack",
-    icon: <Layers className="h-4 w-4" />,
+    icon: <Layers />,
   },
 ];
-
 export default function AdminDashboardLayout({
   children,
 }: {
@@ -61,7 +61,6 @@ export default function AdminDashboardLayout({
   if ((userId as string) !== (process.env.ADMIN_USER_ID as string)) {
     return redirect("/");
   }
-
   return (
     <div className="grid min-h-screen w-full lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r  lg:block  ">
@@ -87,19 +86,17 @@ export default function AdminDashboardLayout({
       </div>
       <div className="flex flex-col ">
         <header className="flex h-14  p-2 lg:h-[60px] items-center gap-4 border-b ">
-          {sidelinks.map((link) => (
-            <Link key={link.href} className="lg:hidden" href={link.href}>
-              {link.icon}
-              <span className="sr-only">{link.text}</span>
-            </Link>
-          ))}
-          <div className="flex gap-3 items-center ml-auto">
-            <ThemeToggler />
-            <UserButton />
+          <div className="flex gap-3 w-full justify-between items-center ">
+            <div className="md:hidden font-semibold">Admin Dashboard</div>
+            <div className="flex items-center md:ml-auto gap-4">
+              <ThemeToggler />
+              <UserButton />
+            </div>
           </div>
         </header>
         <main className="p-4  ">{children}</main>
       </div>
+      <AdminMobileNavbar />
     </div>
   );
 }

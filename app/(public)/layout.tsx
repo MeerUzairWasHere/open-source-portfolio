@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { getAdminDetail } from "@/actions/admin.actions";
 import MyContext from "../MyContext";
+import MobileNavbar from "@/components/MobileNavbar";
 
 export const layout = async ({ children }: { children: React.ReactNode }) => {
   const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ export const layout = async ({ children }: { children: React.ReactNode }) => {
             </section>
             <Footer />
           </div>
+          <MobileNavbar />
         </MyContext>
       </HydrationBoundary>
     </>
