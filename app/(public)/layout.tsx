@@ -22,7 +22,7 @@ export const layout = async ({ children }: { children: React.ReactNode }) => {
         <MyContext>
           <div className="h-full flex flex-col justify-between  ">
             <Navbar />
-            <section className="w-full  md:max-w-screen-2xl mx-auto  py-10  ">
+            <section className="w-full md:max-w-screen-2xl mx-auto  py-10  ">
               <div className="flex gap-x-7">
                 <div className="w-full">{children}</div>
               </div>
