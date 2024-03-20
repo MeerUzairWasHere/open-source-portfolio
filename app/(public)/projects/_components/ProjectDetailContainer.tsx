@@ -16,7 +16,7 @@ const ProjectDetailContainer = ({ projectId }: { projectId: string }) => {
 
   return (
     <>
-      <div className="flex px-4  items-center justify-end w-full">
+      {/* <div className="flex px-4  items-center justify-end w-full">
         <Button className="  mt-6" asChild>
           <Link href=".">
             <>
@@ -24,7 +24,7 @@ const ProjectDetailContainer = ({ projectId }: { projectId: string }) => {
             </>
           </Link>
         </Button>
-      </div>
+      </div> */}
       <Mac {...(data as Project)} />
 
       <div className="md:py-10">
@@ -46,11 +46,13 @@ const ProjectDetailContainer = ({ projectId }: { projectId: string }) => {
                 <p>{data?.description}</p>
               </div>
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="flex h-full flex-col gap-8 ">
               <div className="md:flex hidden flex-col gap-2">
                 <Button asChild>
                   <Link target="_blank" href={data?.liveURL || ""}>
-                    {data?.liveURL.includes("github") ? "Source Code" : "See Live"}{" "}
+                    {data?.liveURL.includes("github")
+                      ? "Source Code"
+                      : "See Live"}{" "}
                     <MoveRight size={10} className="ml-2" />
                   </Link>
                 </Button>
@@ -78,6 +80,13 @@ const ProjectDetailContainer = ({ projectId }: { projectId: string }) => {
                   </Link>
                 </Button>
               </div>
+              <Button className="mt-auto" asChild>
+                <Link href=".">
+                  <>
+                    <MoveLeft width={10} className="mr-1" /> Back
+                  </>
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
