@@ -12,7 +12,6 @@ import {
   CustomFormField,
   CustomFormFieldFile,
   CustomFormSelect,
- 
 } from "@/components/FormComponents";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -85,7 +84,7 @@ function AddTechstackForm() {
           />
           <CustomFormField
             name="url"
-            title="Techtsack Url"
+            title="Techstack Url"
             control={form.control}
           />
           <CustomFormField

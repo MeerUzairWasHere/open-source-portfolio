@@ -107,7 +107,7 @@ function EditTechstackForm({ techstackId }: { techstackId: string }) {
           />
           <CustomFormField
             name="url"
-            title="Techtsack Url"
+            title="Techstack Url"
             control={form.control}
           />
           <CustomFormField
