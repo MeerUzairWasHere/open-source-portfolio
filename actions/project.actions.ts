@@ -47,6 +47,20 @@ export async function getAllProjectsAction(): Promise<{
         return { projects: [] };
     }
 }
+
+function shuffleProjects(projects: Project[]): Project[] {
+    // Deep copy the original array to avoid mutating the original array
+    const shuffledProjects = [...projects];
+
+    // Fisher-Yates shuffle algorithm
+    for (let i = shuffledProjects.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledProjects[i], shuffledProjects[j]] = [shuffledProjects[j], shuffledProjects[i]];
+    }
+
+    return shuffledProjects;
+}
+
 export async function getRandomProjectsAction(): Promise<{ title: string; link: string; thumbnail: string }[]> {
     try {
         const randomProjects = await prisma.project.findMany({
@@ -56,8 +70,11 @@ export async function getRandomProjectsAction(): Promise<{ title: string; link: 
             }
         });
 
+        const shuffledProjects = shuffleProjects(randomProjects);
+
+
         // Map the random projects to the desired format
-        const projects = randomProjects.map(project => ({
+        const projects = shuffledProjects.map(project => ({
             title: project.title,
             link: project.liveURL,
             thumbnail: project.screenshot
