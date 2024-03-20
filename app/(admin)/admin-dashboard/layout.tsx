@@ -48,7 +48,7 @@ export default function AdminDashboardLayout({
             </div>
           </div>
         </header>
-        <main className="p-4 mb-10">{children}</main>
+        <main className="p-4 mb-20">{children}</main>
       </div>
       <AdminMobileNavbar />
     </div>
