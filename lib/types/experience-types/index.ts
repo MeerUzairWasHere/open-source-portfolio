@@ -33,8 +33,6 @@ export const createAndEditExperienceSchema = z.object({
         text: z.string(),
     })).min(1, {
         message: "What I did is required."
-    }).max(5, {
-        message: "Maximum limit is 5."
     }),
 });
 export type CreateAndEditExperienceType = z.infer<typeof createAndEditExperienceSchema>;

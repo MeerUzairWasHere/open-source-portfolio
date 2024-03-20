@@ -47,7 +47,7 @@ export const createAndEditProjectSchema = z.object({
         })
     ).min(1, {
         message: 'at least one tech stack',
-    }).max(7, { message: 'maximum limit 07.' }),
+    }),
     keywords: z.array(
         z.object({
             id: z.string(),
@@ -55,7 +55,7 @@ export const createAndEditProjectSchema = z.object({
         })
     ).min(1, {
         message: 'at least one keywords',
-    }).max(3, { message: 'maximum limit 3.' }),
+    }),
     description: z.string().min(2, {
         message: 'Description must be at least 30 characters.',
     })

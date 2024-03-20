@@ -29,11 +29,11 @@ const HomePageContainer = () => {
 
   return (
     <>
-      {projects?.length > 3 ? (
+      {projects?.length > 14 ? (
         <HeroParallax admin={admin} projects={projects} />
       ) : (
         <h1 className="mt-10 text-center uppercase text-2xl">
-          atleast add 3 projects to showcase on homepage
+          Add 15 projects to the portfolio to showcase on homepage
         </h1>
       )}
       <GTKM />

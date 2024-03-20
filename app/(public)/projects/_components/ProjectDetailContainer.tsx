@@ -50,7 +50,8 @@ const ProjectDetailContainer = ({ projectId }: { projectId: string }) => {
               <div className="md:flex hidden flex-col gap-2">
                 <Button asChild>
                   <Link target="_blank" href={data?.liveURL || ""}>
-                    See Live <MoveRight size={10} className="ml-2" />
+                    {data?.liveURL.includes("github") ? "Source Code" : "See Live"}{" "}
+                    <MoveRight size={10} className="ml-2" />
                   </Link>
                 </Button>
               </div>

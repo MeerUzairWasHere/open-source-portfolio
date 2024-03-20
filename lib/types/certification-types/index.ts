@@ -31,8 +31,6 @@ export const createAndEditCertificateSchema = z.object({
         text: z.string(),
     })).min(1, {
         message: "What I Learned is required."
-    }).max(3, {
-        message: "Maximum limit is 3."
     }),
     credentialID: z.string().min(1, {
         message: "Credential ID is required."

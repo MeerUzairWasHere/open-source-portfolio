@@ -17,12 +17,13 @@ export const HoverEffect = ({
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div className={cn("grid grid-cols-1 md:grid-cols-2 py-10", className)}>
+    <div
+      className={cn("grid grid-cols-1 md:grid-cols-2 gap-4 py-5", className)}>
       {items.map((item, idx) => (
         <Link
           href={item?.link}
           key={item?.link}
-          className="relative group  block p-2 h-full w-full"
+          className="relative group  block p-1 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}>
           <AnimatePresence>
@@ -62,11 +63,11 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden   border  dark:border-white/[0.2]   relative z-20",
+        "rounded-2xl h-full w-full p-2 overflow-hidden   border  dark:border-white/[0.2]   relative z-20",
         className
       )}>
       <div className="relative z-50">
-        <div className="p-4">{children}</div>
+        <div className="p-2">{children}</div>
       </div>
     </div>
   );

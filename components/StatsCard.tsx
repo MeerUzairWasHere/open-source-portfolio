@@ -9,7 +9,9 @@ const StatsCard = ({ title, count }: Props) => {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-        <CardTitle className="text-2xl font-medium">{title}</CardTitle>
+        <CardTitle className="text-2xl capitalize font-medium">
+          {title}
+        </CardTitle>
         <Waypoints />
       </CardHeader>
       <CardContent>
