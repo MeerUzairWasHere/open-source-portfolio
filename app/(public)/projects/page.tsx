@@ -6,7 +6,11 @@ import {
   dehydrate,
 } from "@tanstack/react-query";
 import { getAllProjectsAction } from "@/actions/project.actions";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Projects",
+};
 const ProjectsPage = async () => {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({

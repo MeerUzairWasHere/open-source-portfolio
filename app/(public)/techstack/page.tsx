@@ -7,7 +7,11 @@ import {
 
 import TechStackPageContainer from "./_components/TechStackPageContainer";
 import { getAllTechstacksAction } from "@/actions/techstack.actions";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Techstack",
+};
 const TechstackPage = async () => {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
