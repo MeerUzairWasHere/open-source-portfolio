@@ -8,10 +8,12 @@ const ExperienceCard = ({
   positionName,
   startDate,
 }: ExperienceType) => {
+  const sD = startDate.toDateString();
+  const eD = endDate.toDateString();
   return (
     <a
       href={`/experience/${id}`}
-      className=" hover:scale-105 transition duration-400  space-y-3 border rounded-xl p-4">
+      className="  transition duration-400  space-y-3 border rounded-xl p-4">
       <div className="flex items-center gap-x-3">
         <div>
           <span className="block text-sm  font-medium">{companyName}</span>
@@ -21,7 +23,7 @@ const ExperienceCard = ({
         </div>
       </div>
       <p className="text-gray-600 sm:text-sm">
-        {startDate.toDateString()} - {endDate.toDateString()}
+        {sD} - {eD}
       </p>
       <div className="text-sm text-gray-600 flex items-center gap-6">
         <span className="flex items-center gap-2">
