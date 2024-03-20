@@ -15,7 +15,7 @@ export default function SpotlightHero({ pageName, pageDescription }: Props) {
         <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-500 dark:from-neutral-50 to-neutral-400 bg-opacity-50">
           {pageName}
         </h1>
-        <p className="mt-4 font-normal text-base text-neutral-300 max-w-lg text-center mx-auto">
+        <p className="mt-4 font-normal text-base text-onyx max-w-lg text-center mx-auto">
           {pageDescription}
         </p>
       </div>

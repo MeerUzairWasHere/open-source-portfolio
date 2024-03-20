@@ -35,13 +35,13 @@ export const AdminDetailTable = () => {
             <div className="flex justify-between  px-2 py-6">
               <Avatar className="w-16 h-16 md:w-32 md:h-32 p-1 border-2 border-white rounded-full">
                 <AvatarImage
-                  className="rounded-full w-full h-full"
+                  className="rounded-full object-cover  w-full h-full"
                   src={data?.imageUrl}
                 />
                 <AvatarFallback>
                   <Image
                     src={avatar}
-                    className="w-full h-full rounded-full"
+                    className="w-full h-full object-cover rounded-full"
                     alt="Avatar"
                   />
                 </AvatarFallback>
@@ -82,7 +82,7 @@ export const AdminDetailTable = () => {
                           portfolio:{" "}
                           <a
                             target="_blank"
-                            className="text-white lowercase hover:underline"
+                            className="text-black dark:text-white lowercase hover:underline"
                             href={data?.website}>
                             {data?.website}
                           </a>
@@ -93,7 +93,7 @@ export const AdminDetailTable = () => {
                           email:{" "}
                           <a
                             target="_blank"
-                            className="text-white lowercase hover:underline"
+                            className="text-black dark:text-white lowercase hover:underline"
                             href={`mailto:${data?.email}`}>
                             {data?.email}
                           </a>
@@ -104,7 +104,7 @@ export const AdminDetailTable = () => {
                           twitter:{" "}
                           <a
                             target="_blank"
-                            className="text-white lowercase hover:underline"
+                            className="text-black dark:text-white lowercase hover:underline"
                             href={data?.twitter}>
                             {data?.twitter}
                           </a>
@@ -115,7 +115,7 @@ export const AdminDetailTable = () => {
                           github:{" "}
                           <a
                             target="_blank"
-                            className="text-white lowercase hover:underline"
+                            className="text-black dark:text-white lowercase hover:underline"
                             href={data?.github}>
                             {data?.github}
                           </a>
@@ -126,7 +126,7 @@ export const AdminDetailTable = () => {
                           linkedIn:{" "}
                           <a
                             target="_blank"
-                            className="text-white lowercase hover:underline"
+                            className="text-black dark:text-white lowercase hover:underline"
                             href={data?.linkedIn}>
                             {data?.linkedIn}
                           </a>
@@ -137,7 +137,7 @@ export const AdminDetailTable = () => {
                           whatsapp:{" "}
                           <a
                             target="_blank"
-                            className="text-white lowercase hover:underline"
+                            className="text-black dark:text-white lowercase hover:underline"
                             href={data?.whatsapp}>
                             {data?.whatsapp}
                           </a>
@@ -148,7 +148,7 @@ export const AdminDetailTable = () => {
                           facebook:{" "}
                           <a
                             target="_blank"
-                            className="text-white lowercase hover:underline"
+                            className="text-black dark:text-white lowercase hover:underline"
                             href={data?.facebook}>
                             {data?.facebook}
                           </a>
@@ -159,7 +159,7 @@ export const AdminDetailTable = () => {
                           instagram:{" "}
                           <a
                             target="_blank"
-                            className="text-white lowercase hover:underline"
+                            className="text-black dark:text-white lowercase hover:underline"
                             href={data?.instagram}>
                             {data?.instagram}
                           </a>
@@ -170,7 +170,7 @@ export const AdminDetailTable = () => {
                           discord:{" "}
                           <a
                             target="_blank"
-                            className="text-white lowercase hover:underline"
+                            className="text-black dark:text-white lowercase hover:underline"
                             href={data?.discord}>
                             {data?.discord}
                           </a>
