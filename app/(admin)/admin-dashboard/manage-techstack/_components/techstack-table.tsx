@@ -37,7 +37,6 @@ export const TechStackTable = () => {
               <TableHeader>
                 <TableRow>
                   <TableHead>Title</TableHead>
-                  <TableHead>Category</TableHead>
                   <TableHead className="text-center">Actions</TableHead>
                 </TableRow>
               </TableHeader>
@@ -45,7 +44,6 @@ export const TechStackTable = () => {
                 {techstacks.map(({ id, title, category }) => (
                   <TableRow key={id}>
                     <TableCell>{title}</TableCell>
-                    <TableCell>{category}</TableCell>
                     <TableCell className="flex justify-center gap-2 md:gap-20">
                       <Button
                         className="flex items-center text-xsm gap-2 "
