@@ -10,12 +10,12 @@ const ContactMe = () => {
         <h2 className="text-center text-3xl font-bold text-onyx dark:text-white lg:text-left lg:text-5xl">
           Let’s work together
         </h2>
-        <p className="mt-4 text-center text-xl text-medium-gray lg:text-left">
+        <p className="mt-4 text-center text-lg md:text-xl text-onyx lg:text-left">
           Want to discuss an opportunity to create something great?{" "}
           <br className="hidden lg:inline-block" /> I’m ready when you are.
         </p>
       </div>
-      <Button  asChild variant="default" size="xl">
+      <Button asChild variant="default" size="xl">
         <Link href={`mailto:${data?.email}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
