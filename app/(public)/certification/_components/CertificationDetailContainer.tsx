@@ -12,22 +12,16 @@ const CertificationDetailContainer = ({
 }: {
   certificationId: string;
 }) => {
-  const { data } = useQuery({
+  const { data,isPending } = useQuery({
     queryKey: ["certification", certificationId],
     queryFn: () => getSingleCertificationAction(certificationId),
   });
 
+  if(isPending) return <h1>loading</h1>
+
+
   return (
     <>
-      <div className="flex px-4  items-center justify-end w-full">
-        <Button className="  mt-6" asChild>
-          <Link href=".">
-            <>
-              <MoveLeft width={10} className="mr-1" /> Back
-            </>
-          </Link>
-        </Button>
-      </div>
       <Mac
         title={data?.title || ""}
         screenshot={data?.screenshot || ""}
@@ -62,11 +56,18 @@ const CertificationDetailContainer = ({
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-4">
-              <div className="md:flex hidden flex-col gap-2">
+            <div className="flex h-full flex-col gap-4">
+              <div className="md:flex h-full hidden flex-col gap-2">
                 <Button asChild>
                   <Link target="_blank" href={data?.certificateUrl || ""}>
                     See Certification <MoveRight size={10} className="ml-2" />
+                  </Link>
+                </Button>
+                <Button className="mt-auto" asChild>
+                  <Link href=".">
+                    <>
+                      <MoveLeft width={10} className="mr-1" /> Back
+                    </>
                   </Link>
                 </Button>
               </div>
@@ -75,6 +76,13 @@ const CertificationDetailContainer = ({
                 <Button asChild>
                   <Link target="_blank" href={data?.certificateUrl || ""}>
                     See Certification <MoveRight size={10} className="ml-2" />
+                  </Link>
+                </Button>
+                <Button className="mt-auto" asChild>
+                  <Link href=".">
+                    <>
+                      <MoveLeft width={10} className="mr-1" /> Back
+                    </>
                   </Link>
                 </Button>
               </div>

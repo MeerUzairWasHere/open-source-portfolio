@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
+import Logo from "@/public/default_logo.png";
 import { cn } from "@/lib/utils";
 import {
   IconBrightnessDown,
@@ -160,6 +161,7 @@ export const Lid = ({
           src={src as string}
           alt="aceternity logo"
           fill
+          loading="lazy"
           className="absolute rounded-lg inset-0 h-full w-full"
         />
       </motion.div>

@@ -16,15 +16,7 @@ const ProjectDetailContainer = ({ projectId }: { projectId: string }) => {
 
   return (
     <>
-      {/* <div className="flex px-4  items-center justify-end w-full">
-        <Button className="  mt-6" asChild>
-          <Link href=".">
-            <>
-              <MoveLeft width={10} className="mr-1" /> Back
-            </>
-          </Link>
-        </Button>
-      </div> */}
+      
       <Mac {...(data as Project)} />
 
       <div className="md:py-10">
