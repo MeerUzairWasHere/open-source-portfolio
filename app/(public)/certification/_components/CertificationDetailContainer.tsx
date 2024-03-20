@@ -3,7 +3,6 @@ import { getSingleCertificationAction } from "@/actions/certification.actions";
 import { Mac } from "@/components/Mac";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { CertificateType } from "@/lib/types/certification-types";
 import { useQuery } from "@tanstack/react-query";
 import { MoveLeft, MoveRight } from "lucide-react";
 import Link from "next/link";
