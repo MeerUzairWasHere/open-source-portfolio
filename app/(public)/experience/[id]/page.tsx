@@ -17,15 +17,6 @@ const ExperienceDetail = async ({ params }: { params: { id: string } }) => {
   });
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <div className="flex mt-10 pr-5 justify-end w-full">
-        <Button asChild>
-          <Link href=".">
-            <>
-              <MoveLeft width={10} className="mr-1" /> Back
-            </>
-          </Link>
-        </Button>
-      </div>
       <ExperienceDetailPage experienceId={params?.id} />
     </HydrationBoundary>
   );
