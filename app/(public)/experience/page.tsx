@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const ExperiencePage = async () => {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
-    queryKey: ["experience"],
+    queryKey: ["experiences"],
     queryFn: () => getAllExperienceAction(),
   });
   return (
