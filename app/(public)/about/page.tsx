@@ -6,7 +6,11 @@ import {
   dehydrate,
 } from "@tanstack/react-query";
 import AboutPageContainer from "./_components/AboutPageContainer";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "About"
+};
 const AboutPage = async () => {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
