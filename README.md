@@ -87,12 +87,12 @@ Before running the application, you need to set up environment variables and con
 
 4. **Admin User Configuration**:
 
-   - After setting up Clerk, login with your account credentials.
-   - Create a new user account that you want to designate as the admin.
-   - Go to Clerk settings and navigate to the Users section.
+   - run `npm run dev` and `login` with an account that you want to designate as the admin.
+   - And then go back to Clerk settings and navigate to the Users section.
    - Copy the user ID of the admin account.
    - Add the user ID to the `.env` file under the `ADMIN_USER_ID` variable.
-
+   - Then only first time navigate through searchbar to `/admin-dashboard/manage-admin/` as you don't have a admin added yet.
+     
 5. **Change title,description,favicon**:
    To set up the title, description, and favicon/logo:
 
@@ -117,6 +117,8 @@ If you encounter any issues during setup or have any questions, feel free to rea
    ```
 
 5. **Access the Application**: Once the application is running, you can access it in your web browser at `http://localhost:3000`.
+
+   # Note: Parallax Effect on Homepage enables after adding atleast 15 projects to your portfolio
 
 ## Deploy on vercel
 
