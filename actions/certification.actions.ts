@@ -60,6 +60,7 @@ export async function deleteCertificationAction(id: string): Promise<Certificate
     }
 }
 
+
 export async function getSingleCertificationAction(id: string): Promise<CertificateType | null> {
     let certification: CertificateType | null = null;
 
@@ -83,7 +84,7 @@ export async function updateCertificationAction(
     id: string,
     values: CreateAndEditCertificateType
 ): Promise<CertificateType | null> {
-     authenticateAndRedirect();
+    authenticateAndRedirect();
 
     try {
         const certificate: CertificateType = await prisma.certification.update({

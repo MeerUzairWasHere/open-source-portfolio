@@ -17,7 +17,7 @@ export default function ExperienceDetailPage({
   });
 
   return (
-    <div className="px-4 pt-10 md:px-10  ">
+    <div className="px-4 pt-10  md:px-10  ">
       <div className="space-y-6">
         <div className="space-y-2">
           <div className="text-3xl flex items-center justify-between">

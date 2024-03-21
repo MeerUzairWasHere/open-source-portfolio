@@ -32,7 +32,7 @@ export const MacbookScroll = ({
   title,
   badge,
 }: {
-  src?: string;
+  src: string;
   showGradient?: boolean;
   title?: string | React.ReactNode;
   badge?: React.ReactNode;

@@ -11,7 +11,7 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ["certification", params.id],
+    queryKey: ["certificate", params.id],
     queryFn: () => getSingleProjectAction(params.id),
   });
   return (

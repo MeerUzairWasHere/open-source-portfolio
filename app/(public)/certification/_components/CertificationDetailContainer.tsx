@@ -1,8 +1,9 @@
 "use client";
 import { getSingleCertificationAction } from "@/actions/certification.actions";
-import { Mac } from "@/components/Mac";
+import { CertificationMac } from "@/components/CertificationMac";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { CertificateType } from "@/lib/types/certification-types";
 import { useQuery } from "@tanstack/react-query";
 import { MoveLeft, MoveRight } from "lucide-react";
 import Link from "next/link";
@@ -13,17 +14,13 @@ const CertificationDetailContainer = ({
   certificationId: string;
 }) => {
   const { data } = useQuery({
-    queryKey: ["certification", certificationId],
+    queryKey: ["certificate", certificationId],
     queryFn: () => getSingleCertificationAction(certificationId),
   });
 
   return (
     <>
-      <Mac
-        title={data?.title || ""}
-        screenshot={data?.screenshot || ""}
-        oneLiner={data?.organizationName || ""}
-      />
+      <CertificationMac {...(data as CertificateType)} />
 
       <div className="md:py-10">
         <div className="container px-4 md:px-6">
@@ -43,13 +40,13 @@ const CertificationDetailContainer = ({
                 </p>
                 <div className="flex flex-col     gap-2">
                   <h3 className="text-lg font-bold">What I learned:</h3>
-                  <ul>
+                  <div>
                     {data?.learned?.map((learn: any, index) => (
-                      <li key={learn?.id}>
-                        {`${index + 1}) `} {learn?.text}
+                      <li className="text-sm md:text-base" key={learn?.id}>
+                        {learn?.text}
                       </li>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </div>
             </div>

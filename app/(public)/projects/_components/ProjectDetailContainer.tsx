@@ -1,6 +1,6 @@
 "use client";
 import { getSingleProjectAction } from "@/actions/project.actions";
-import { Mac } from "@/components/Mac";
+import { ProjectMac } from "@/components/ProjectMac";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Project } from "@/lib/types/project-types";
@@ -16,7 +16,7 @@ const ProjectDetailContainer = ({ projectId }: { projectId: string }) => {
 
   return (
     <>
-      <Mac {...(data as Project)} />
+      <ProjectMac {...(data as Project)} />
 
       <div className="md:py-10 mt-8">
         <div className="container px-4 md:px-6">
