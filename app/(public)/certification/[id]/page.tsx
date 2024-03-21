@@ -6,8 +6,15 @@ import {
 
 import { getSingleProjectAction } from "@/actions/project.actions";
 import CertificationDetailContainer from "../_components/CertificationDetailContainer";
-
-const ProjectDetails = async ({ params }: { params: { id: string } }) => {
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Certification Info",
+};
+const CertificationDetailPage = async ({
+  params,
+}: {
+  params: { id: string };
+}) => {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
@@ -20,4 +27,4 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
     </HydrationBoundary>
   );
 };
-export default ProjectDetails;
+export default CertificationDetailPage;

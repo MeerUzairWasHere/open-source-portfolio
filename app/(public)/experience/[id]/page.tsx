@@ -5,10 +5,11 @@ import {
 } from "@tanstack/react-query";
 import { getSingleExperienceAction } from "@/actions/experience.actions";
 import ExperienceDetailPage from "../_components/ExperienceDetailPage";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { MoveLeft } from "lucide-react";
-
+ 
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Experience Info",
+};
 const ExperienceDetail = async ({ params }: { params: { id: string } }) => {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({

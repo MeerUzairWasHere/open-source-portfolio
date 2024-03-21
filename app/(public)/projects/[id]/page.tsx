@@ -7,6 +7,10 @@ import {
 import ProjectDetailContainer from "../_components/ProjectDetailContainer";
 import { getSingleProjectAction } from "@/actions/project.actions";
 
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Project Info",
+};
 const ProjectDetails = async ({ params }: { params: { id: string } }) => {
   const queryClient = new QueryClient();
 

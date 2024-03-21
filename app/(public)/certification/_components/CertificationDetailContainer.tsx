@@ -22,7 +22,7 @@ const CertificationDetailContainer = ({
     <>
       <CertificationMac {...(data as CertificateType)} />
 
-      <div className="md:py-10">
+      <div className="md:py-10 mt-8">
         <div className="container px-4 md:px-6">
           <div className="grid max-w-6xl gap-10 mx-auto items-start md:space-y-5 lg:grid-cols-3 lg:gap-16 lg:space-y-0">
             <div className="space-y-4 lg:col-span-2 lg:space-y-6">
