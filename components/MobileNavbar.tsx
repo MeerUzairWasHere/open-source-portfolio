@@ -32,7 +32,7 @@ export const links: {
         className="lucide lucide-layers">
         <path
           d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"
-          fill="#fff"
+          fill="currentColor"
         />
         <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" />
         <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" />
@@ -76,7 +76,21 @@ export const links: {
   {
     title: "Home",
     href: "/",
-    icon: <Home />,
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+        className="text-faint-white dark:text-white">
+        <path
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.5"
+          d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .62.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path>
+      </svg>
+    ),
     isOpenIcon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -156,7 +170,7 @@ const MobileNavbar = () => {
                 </li>
               );
             })}
-            <li className="group flex flex-1 items-center justify-center rounded-lg bg-transparent  text-light-gray hover:bg-black/10 dark:hover:bg-white/10 ">
+            <li className="group flex flex-1 items-center justify-center rounded-lg bg-transparent  text-light-gray hover:bg-black/10 dark:hover:bg-white/10">
               <button
                 className={"flex w-full  items-center justify-center py-2"}
                 onClick={() => setIsOpen(!isOpen)}>
@@ -168,8 +182,12 @@ const MobileNavbar = () => {
                     fill="none"
                     className="text-faint-white dark:text-white">
                     <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
                       fill="currentColor"
-                      d="M5.625 3.75a2.625 2.625 0 0 0 0 5.25h12.75a2.625 2.625 0 0 0 0-5.25H5.625Zm-1.875 7.5a.75.75 0 1 0 0 1.5h16.5a.75.75 0 1 0 0-1.5H3.75ZM3 15.75a.75.75 0 0 1 .75-.75h16.5a.75.75 0 1 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Zm.75 3a.75.75 0 1 0 0 1.5h16.5a.75.75 0 1 0 0-1.5H3.75Z"></path>
+                      d="M4 12.5h16.5M4 16.25h16.5M4 20h16.5M5.875 5h12.75a1.875 1.875 0 1 1 0 3.75H5.875a1.875 1.875 0 0 1 0-3.75Z"></path>
                   </svg>
                 ) : (
                   <>
@@ -201,7 +219,7 @@ const MobileNavbar = () => {
         <li>
           <Link
             onClick={() => setIsOpen(false)}
-            className="cursor-pointer rounded-lg justify-center items-center font-medium transition flex w-full gap-2 bg-medium-gray py-4 text-white hover:bg-white/20 dark:bg-white/10 dark:hover:bg-white/20"
+            className="cursor-pointer rounded-lg justify-center items-center font-medium transition flex w-full gap-2 bg-onyx/30 py-4 text-black dark:text-white hover:bg-white/20 dark:bg-white/10 dark:hover:bg-white/20"
             href="/certification">
             Certification
           </Link>
@@ -209,7 +227,7 @@ const MobileNavbar = () => {
         <li>
           <Link
             onClick={() => setIsOpen(false)}
-            className="cursor-pointer rounded-lg justify-center items-center font-medium transition flex w-full gap-2 bg-medium-gray py-4 text-white hover:bg-white/20 dark:bg-white/10 dark:hover:bg-white/20"
+            className="cursor-pointer rounded-lg justify-center items-center font-medium transition flex w-full gap-2 bg-onyx/30 py-4 text-black dark:text-white hover:bg-white/20 dark:bg-white/10 dark:hover:bg-white/20"
             href="/experience">
             Experience
           </Link>
@@ -218,7 +236,7 @@ const MobileNavbar = () => {
           <li className=" ">
             <Link
               onClick={() => setIsOpen(false)}
-              className="cursor-pointer rounded-lg justify-center items-center font-medium transition flex w-full gap-2 bg-medium-gray py-4 text-white hover:bg-white/20 dark:bg-white/10 dark:hover:bg-white/20"
+              className="cursor-pointer rounded-lg justify-center items-center font-medium transition flex w-full gap-2 bg-onyx/30 py-4 text-black dark:text-white hover:bg-white/20 dark:bg-white/10 dark:hover:bg-white/20"
               href="/sign-in">
               Admin Login
             </Link>
@@ -228,7 +246,7 @@ const MobileNavbar = () => {
           <li>
             <Link
               onClick={() => setIsOpen(false)}
-              className="cursor-pointer rounded-lg justify-center items-center font-medium transition flex w-full gap-2 bg-medium-gray py-4 text-white hover:bg-white/20 dark:bg-white/10 dark:hover:bg-white/20"
+              className="cursor-pointer rounded-lg justify-center items-center font-medium transition flex w-full gap-2 bg-onyx/30 py-4 text-black dark:text-white hover:bg-white/20 dark:bg-white/10 dark:hover:bg-white/20"
               href="/admin-dashboard">
               Admin Dashboard
             </Link>
