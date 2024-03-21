@@ -163,7 +163,8 @@ Thank you for using the **open-source-portfolio** repository! If you have any qu
 
 ---
 
-## 🌐 Socials:
+## 🌐 Socials: if stuck let me know here:
+
 [![Portfolio](https://img.shields.io/badge/Portfolio-%23000000.svg?style=for-the-badge&logo=Portfolio&logoColor=white)](https://meeruzairwashere-portfolio.onrender.com/)
 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:meer.uxair007@gmail.com)
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://instagram.com/meeruzairwashere)
