@@ -15,7 +15,8 @@ export default function ExperienceDetailPage({
     queryKey: ["experience", experienceId],
     queryFn: () => getSingleExperienceAction(experienceId),
   });
-
+  const sD = data?.startDate.toDateString();
+  const eD = data?.endDate.toDateString();
   return (
     <div className="px-4 pt-10  md:px-10  ">
       <div className="space-y-6">
@@ -37,13 +38,13 @@ export default function ExperienceDetailPage({
             <Label className="flex items-center gap-2">
               <Calendar size={20} /> Start Date
             </Label>
-            <div>{data?.startDate.toDateString()}</div>
+            <div>{sD}</div>
           </div>
           <div className="space-y-2">
             <Label className="flex items-center gap-2">
               <Calendar size={20} /> End Date
             </Label>
-            <div>{data?.endDate.toDateString()}</div>
+            <div>{eD}</div>
           </div>
         </div>
         <div className="space-y-2">
