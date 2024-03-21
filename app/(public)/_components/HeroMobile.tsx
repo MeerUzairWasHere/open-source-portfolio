@@ -51,7 +51,8 @@ const HeroMobile = ({ name, position, location, email }: AdminType) => {
                   See my work
                 </Link>
               </Button>
-
+            </motion.div>
+            <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
               <Button
                 asChild
                 variant={"secondary"}
