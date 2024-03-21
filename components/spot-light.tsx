@@ -26,7 +26,7 @@ export default function SpotlightHero({ pageName, pageDescription }: Props) {
         },
       }}>
       <Spotlight
-        className="-top-40 left-0 md:left-80 md:-top-20"
+        className="-top-40 left-0 md:left-[35%] md:-top-20"
         fill="white"
       />
       <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
