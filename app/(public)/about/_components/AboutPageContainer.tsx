@@ -15,7 +15,7 @@ const AboutPageContainer = () => {
   if (isPending) return <h1>Loading...</h1>;
   if (!data) return <h1 className="text-center">Add admin details first!</h1>;
   return (
-    <div className="container max-w-6xl">
+    <div className="container max-w-6xl px-4">
       <div className="grid w-full grid-cols-1 md:grid-cols-12">
         {/* left */}
         <div className="col-span-12 flex flex-col gap-12 md:col-span-8 md:pr-12">
