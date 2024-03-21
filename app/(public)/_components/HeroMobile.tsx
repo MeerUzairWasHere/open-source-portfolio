@@ -8,7 +8,7 @@ const HeroMobile = ({ name, position, location, email }: AdminType) => {
     show: { opacity: 1, y: 0, transition: { type: "spring" } },
   };
   return (
-    <div className="container sm:hidden mt-28 max-w-[1024px]">
+    <div className="container sm:hidden mt-32 max-w-[1024px]">
       <section className=" relative flex items-center justify-end pb-20">
         <motion.div
           initial="hidden"
