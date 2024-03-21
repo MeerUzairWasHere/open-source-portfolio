@@ -79,8 +79,6 @@ function EditCertificationForm({ certificateId }: { certificateId: string }) {
         toast({ description: "There was an error" });
         return;
       }
-      router.push("/admin-dashboard/manage-certification");
-      toast({ description: "Certificate updated successfully!" });
       queryClient.invalidateQueries({
         queryKey: ["certification"],
       });
@@ -90,6 +88,9 @@ function EditCertificationForm({ certificateId }: { certificateId: string }) {
       queryClient.invalidateQueries({
         queryKey: ["stats"],
       });
+      router.push("/admin-dashboard/manage-certification");
+      toast({ description: "Certificate updated successfully!" });
+
       return null;
     },
   });

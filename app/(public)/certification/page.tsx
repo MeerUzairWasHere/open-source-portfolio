@@ -1,4 +1,3 @@
-import Card from "@/components/Card";
 import SpotlightHero from "@/components/spot-light";
 import {
   HydrationBoundary,

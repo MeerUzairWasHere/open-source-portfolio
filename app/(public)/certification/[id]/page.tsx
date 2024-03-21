@@ -4,9 +4,9 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 
-import { getSingleProjectAction } from "@/actions/project.actions";
 import CertificationDetailContainer from "../_components/CertificationDetailContainer";
 import { Metadata } from "next";
+import { getSingleCertificationAction } from "@/actions/certification.actions";
 export const metadata: Metadata = {
   title: "Certification Info",
 };
@@ -19,7 +19,7 @@ const CertificationDetailPage = async ({
 
   await queryClient.prefetchQuery({
     queryKey: ["certificate", params.id],
-    queryFn: () => getSingleProjectAction(params.id),
+    queryFn: () => getSingleCertificationAction(params.id),
   });
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
