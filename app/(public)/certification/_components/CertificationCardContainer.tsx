@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const CertificationCardContainer = () => {
   const { data, isPending } = useQuery({
-    queryKey: ["certification"],
+    queryKey: ["certifications"],
     queryFn: () => getAllCertificationsAction(),
   });
 

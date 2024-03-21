@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const CertificationPage = async () => {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
-    queryKey: ["certification"],
+    queryKey: ["certifications"],
     queryFn: () => getAllCertificationsAction(),
   });
   return (
