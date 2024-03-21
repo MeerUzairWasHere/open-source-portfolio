@@ -18,7 +18,7 @@ To get started with using this portfolio template, follow these steps:
 1. **Clone the Repository**: Clone this repository to your local machine using the following command:
 
    ```bash
-   git clone https://github.com/your-username/open-source-portfolio.git
+   git clone https://github.com/MeerUzairWasHere/open-source-portfolio.git
    ```
 
 2. **Install Dependencies**: Navigate into the project directory and install the necessary dependencies for both the frontend and backend:
