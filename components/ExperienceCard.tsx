@@ -1,4 +1,5 @@
 import { ExperienceType } from "@/lib/types/experience-types";
+import { formatDate } from "date-fns";
 
 const ExperienceCard = ({
   companyLocation,
@@ -8,8 +9,8 @@ const ExperienceCard = ({
   positionName,
   startDate,
 }: ExperienceType) => {
-  const sD = startDate.toDateString();
-  const eD = endDate.toDateString();
+  const sD = formatDate(startDate, "dd-MM-yyyy");
+  const eD = formatDate(endDate, "dd-MM-yyyy");
   return (
     <a
       href={`/experience/${id}`}

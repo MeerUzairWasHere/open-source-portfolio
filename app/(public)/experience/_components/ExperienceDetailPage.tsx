@@ -3,6 +3,7 @@ import { getSingleExperienceAction } from "@/actions/experience.actions";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { useQuery } from "@tanstack/react-query";
+import { formatDate } from "date-fns";
 import { Calendar, MapPin, MoveLeft } from "lucide-react";
 import Link from "next/link";
 
@@ -15,8 +16,8 @@ export default function ExperienceDetailPage({
     queryKey: ["experience", experienceId],
     queryFn: () => getSingleExperienceAction(experienceId),
   });
-  const sD = data?.startDate.toDateString();
-  const eD = data?.endDate.toDateString();
+  const sD = formatDate(data?.startDate || Date.now(), "dd-MM-yyyy");
+  const eD = formatDate(data?.endDate || Date.now(), "dd-MM-yyyy");
   return (
     <div className="px-4 pt-10  md:px-10  ">
       <div className="space-y-6">
