@@ -6,6 +6,8 @@ import { HeroParallax } from "@/components/ui/hero-parallax";
 import { useQuery } from "@tanstack/react-query";
 import GTKM from "./GTKM";
 import ContactMe from "./ContactMe";
+import HeroMobile from "./HeroMobile";
+import { AdminType } from "@/lib/types/admin-types";
 
 const HomePageContainer = () => {
   const { data: projectsData, isPending: projectsIsLoading } = useQuery({
@@ -29,12 +31,9 @@ const HomePageContainer = () => {
 
   return (
     <>
-      {projects?.length > 14 ? (
+      {admin && <HeroMobile {...(adminData as AdminType)} />}
+      {projects?.length > 14 && (
         <HeroParallax admin={admin} projects={projects} />
-      ) : (
-        <h1 className="mt-10 text-center uppercase text-2xl">
-          Add 15 projects to the portfolio to showcase on homepage
-        </h1>
       )}
       <GTKM />
       <ContactMe />

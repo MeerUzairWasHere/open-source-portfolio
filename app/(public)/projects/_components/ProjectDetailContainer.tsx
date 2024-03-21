@@ -16,10 +16,9 @@ const ProjectDetailContainer = ({ projectId }: { projectId: string }) => {
 
   return (
     <>
-      
       <Mac {...(data as Project)} />
 
-      <div className="md:py-10">
+      <div className="md:py-10 mt-8">
         <div className="container px-4 md:px-6">
           <div className="grid max-w-6xl gap-10 mx-auto items-start md:space-y-5 lg:grid-cols-3 lg:gap-16 lg:space-y-0">
             <div className="space-y-4 lg:col-span-2 lg:space-y-6">
@@ -38,7 +37,7 @@ const ProjectDetailContainer = ({ projectId }: { projectId: string }) => {
                 <p>{data?.description}</p>
               </div>
             </div>
-            <div className="flex h-full flex-col gap-8 ">
+            <div className="flex h-full flex-col gap-4 ">
               <div className="md:flex hidden flex-col gap-2">
                 <Button asChild>
                   <Link target="_blank" href={data?.liveURL || ""}>
