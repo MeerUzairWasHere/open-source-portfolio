@@ -14,12 +14,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { SignedIn, useAuth } from "@clerk/nextjs";
 import { useMyContext } from "@/app/MyContext";
-import {
-  Cpu,
-  Home,
-  CheckCircle,
-  Layers,
-} from "lucide-react";
+import { Cpu, Home, CheckCircle, Layers } from "lucide-react";
 
 export const links: { title: string; href: string; icon?: any }[] = [
   {
@@ -101,7 +96,7 @@ export function NavbarLinks() {
   const data = useMyContext();
   const { userId } = useAuth();
   return (
-    <NavigationMenu className="hidden md:block">
+    <NavigationMenu className="hidden lg:block">
       <NavigationMenuList>
         {links.map((link) => (
           <NavigationMenuItem key={link.title}>

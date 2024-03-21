@@ -1,24 +1,46 @@
+"use client";
 import React from "react";
 import { Spotlight } from "./ui/Spotlight";
 type Props = {
   pageName: string;
   pageDescription: string;
 };
+import { motion } from "framer-motion";
 export default function SpotlightHero({ pageName, pageDescription }: Props) {
+  const FADE_UP_ANIMATION_VARIANTS = {
+    hidden: { opacity: 0, y: 10 },
+    show: { opacity: 1, y: 0, transition: { type: "spring" } },
+  };
   return (
-    <div className="h-[13rem] w-full rounded-md flex md:items-center md:justify-center dark:bg-black/[0.96] bg-white/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
+    <motion.div
+      className="h-[13rem] w-full rounded-md flex md:items-center md:justify-center dark:bg-black/[0.96] bg-white/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden"
+      initial="hidden"
+      animate="show"
+      viewport={{ once: true }}
+      variants={{
+        hidden: {},
+        show: {
+          transition: {
+            staggerChildren: 0.3,
+          },
+        },
+      }}>
       <Spotlight
         className="-top-40 left-0 md:left-80 md:-top-20"
         fill="white"
       />
       <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
-        <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-500 dark:from-neutral-50 to-neutral-400 bg-opacity-50">
+        <motion.h1
+          variants={FADE_UP_ANIMATION_VARIANTS}
+          className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-500 dark:from-neutral-50 to-neutral-400 bg-opacity-50">
           {pageName}
-        </h1>
-        <p className="mt-4 font-normal text-base text-onyx max-w-lg text-center mx-auto">
+        </motion.h1>
+        <motion.p
+          variants={FADE_UP_ANIMATION_VARIANTS}
+          className="mt-4 font-normal text-base text-onyx max-w-lg text-center mx-auto">
           {pageDescription}
-        </p>
+        </motion.p>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -14,8 +14,8 @@ import Link from "next/link";
 const Footer = () => {
   const data = useMyContext();
   return (
-    <footer className="w-full min-h-44 md:min-h-20 border-t shadow-sm py-6">
-      <div className="container flex flex-col items-center justify-center gap-2 px-4 text-center md:gap-4 md:flex-row md:justify-between lg:px-6">
+    <footer className="w-full min-h-48 md:min-h-20 border-t shadow-sm py-6">
+      <div className="container flex flex-col items-center justify-center gap-4 px-4 text-center md:gap-4 md:flex-row md:justify-between lg:px-6">
         <div className="order-2 flex items-center gap-2 text-sm md:order-1 md:gap-4 lg:text-base">
           <span className="font-semibold uppercase">
             © {new Date().getFullYear()} {data?.name || "Your Logo"}.

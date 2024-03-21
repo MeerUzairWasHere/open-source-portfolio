@@ -72,7 +72,6 @@ export const links: {
       </svg>
     ),
   },
-
   {
     title: "Home",
     href: "/",
@@ -148,7 +147,7 @@ const MobileNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   //copy
   return (
-    <div className="fixed inset-x-0 bottom-0 z-[99999] block px-4 pb-6 md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-[99999] block px-4 pb-6 lg:hidden">
       <div className="flex h-16 w-full items-center justify-between rounded-2xl border-[1px] border-onyx/30 bg-onyx/30 px-4 backdrop-blur-md dark:border-card-border/60 dark:bg-[#18181D]/30">
         <nav className="w-full">
           <ul className="flex items-center justify-between gap-4">
