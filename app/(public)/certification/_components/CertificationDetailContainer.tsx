@@ -40,7 +40,7 @@ const CertificationDetailContainer = ({
                 </p>
                 <div className="flex flex-col     gap-2">
                   <h3 className="text-lg font-bold">What I learned:</h3>
-                  <div>
+                  <div className="space-y-2">
                     {data?.learned?.map((learn: any, index) => (
                       <li className="text-sm md:text-base" key={learn?.id}>
                         {learn?.text}
