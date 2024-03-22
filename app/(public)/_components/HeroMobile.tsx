@@ -36,7 +36,7 @@ const HeroMobile = ({ name, position, location, email }: AdminType) => {
                 variants={FADE_UP_ANIMATION_VARIANTS}
                 className="text-center text-lg text-onyx/60 dark:text-dark-gray md:text-left md:text-2xl">
                 A {position || "Your Position"} based in{" "}
-                {location || "Your Location"}, turning ideas into reality
+                {location || "Your Location"}. Turning ideas into reality
                 through efficient and creative coding.
               </motion.p>
             </div>
