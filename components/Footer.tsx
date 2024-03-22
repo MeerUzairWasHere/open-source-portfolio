@@ -41,6 +41,7 @@ const Footer = () => {
           )}
           {data?.github && (
             <Link
+              target="_blank" 
               className="rounded-full w-6 h-6 flex items-center justify-center border border-gray-200 hover:bg-gray-100 hover:text-gray-900 dark:border-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-50"
               href={data?.github}>
               <span className="sr-only">GitHub</span>
